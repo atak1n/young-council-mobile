@@ -3,6 +3,11 @@ import App from './components/App'
 import VueDevtools from 'nativescript-vue-devtools'
 // import Navigator from 'nativescript-vue-navigator'
 
+import CardViewPlugin from '@nativescript-community/ui-material-cardview/vue';
+
+Vue.use(CardViewPlugin);
+
+
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
