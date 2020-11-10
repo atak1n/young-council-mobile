@@ -5,7 +5,7 @@ import ads from './modules/ads';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {},
   getters: {},
   mutations: {},
@@ -14,3 +14,5 @@ export const store = new Vuex.Store({
     ads,
   },
 });
+
+export default store

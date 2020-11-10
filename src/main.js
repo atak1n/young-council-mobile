@@ -12,7 +12,7 @@ if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
 
-import {store} from './store'
+import store from './store'
 import { routes } from './routes'
 // Vue.use(Navigator, { routes })
 
