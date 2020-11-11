@@ -1,5 +1,11 @@
 <template>
-  <MDCardView class="" margin="12" height="500" rippleColor="grey" borderRadius="4">
+  <MDCardView
+      v-on="$listeners"
+      margin="12"
+      height="500"
+      rippleColor="grey"
+      borderRadius="4"
+  >
     <StackLayout class="">
       <Image
           src.decode="font://&#xF2b9;"

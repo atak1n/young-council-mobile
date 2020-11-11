@@ -2,33 +2,33 @@
 <template lang="html">
   <BottomNavigation>
     <TabStrip>
-      <TabStripItem class="navigation__item">
+      <TabStripItem class="nt-tab-strip__item">
         <Label text="Главная"></Label>
         <Image src.decode="font://&#xf015;" class="fas t-36"/>
       </TabStripItem>
-      <TabStripItem class="navigation__item">
+      <TabStripItem class="nt-tab-strip__item">
         <Label text="Управление"></Label>
         <Image src.decode="font://&#xf007;" class="fas t-36"/>
       </TabStripItem>
-      <TabStripItem class="navigation__item">
+      <TabStripItem class="nt-tab-strip__item">
         <Label text="Профиль"></Label>
         <Image src.decode="font://&#xf00e;" class="fas t-36"/>
       </TabStripItem>
     </TabStrip>
 
     <TabContentItem>
-      <Frame id="adverts">
+      <Frame id="adverts" defaultPage="adverts-page">
         <AdsListView/>
       </Frame>
 
     </TabContentItem>
     <TabContentItem>
-      <Frame id="mgr-panel">
+      <Frame id="mgr-panel" defaultPage="mgr-panel-page">
         <AdsMgrList/>
       </Frame>
     </TabContentItem>
     <TabContentItem>
-      <Frame id="profile">
+      <Frame id="profile" defaultPage="profile-page">
         <UserProfile/>
       </Frame>
     </TabContentItem>
