@@ -24,20 +24,20 @@
 export default {
   name: "AdListView",
   components: {
-    AdCard: () => import("../components/AdCard"),
-    AdDetail: () => import("./AdDetail")
+    AdCard: () => import("../AdCard"),
+    // AdDetail: () => import("./AdDetail")
   },
   data: () => ({
-    // AdDetail: () => import("./AdDetail")
+    AdDetail: () => import("./AdDetail")
   }),
   methods: {
-    openAdDetail() {
-      // const button = args.object
-      // const page = button.page
-      // // page.frame.navigate('AdDetail')
+    openAdDetail(args) {
+      const button = args.object
+      const page = button.page
+      page.frame.navigate('AdDetail')
       // console.log('frame name ->',page.frame, ' page-id ->', page.id)
       // this.$navigateTo(this.AdDetail).catch(err => console.log('There was an error!', err))
-      this.$navigator.navigate('/ad-detail')
+      // this.$navigator.navigate('/ad-detail')
       // Frame.topmost().navigate(() => { return this.AdDetail});
     }
   }

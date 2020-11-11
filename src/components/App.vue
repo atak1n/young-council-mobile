@@ -17,28 +17,28 @@
     </TabStrip>
 
     <TabContentItem>
-      <Frame id="adverts" defaultPage="adverts-page">
-        <AdsListView/>
+      <Frame id="adverts" defaultPage="./views/AdsListView">
+<!--        <AdsListView/>-->
       </Frame>
 
     </TabContentItem>
     <TabContentItem>
-      <Frame id="mgr-panel" defaultPage="mgr-panel-page">
-        <AdsMgrList/>
+      <Frame id="mgr-panel" defaultPage="./views/AdsMgrList">
+<!--        <AdsMgrList/>-->
       </Frame>
     </TabContentItem>
     <TabContentItem>
-      <Frame id="profile" defaultPage="profile-page">
-        <UserProfile/>
+      <Frame id="profile" defaultPage="./views/UserProfile">
+<!--        <UserProfile/>-->
       </Frame>
     </TabContentItem>
   </BottomNavigation>
 </template>
 
 <script >
-import AdsListView from '../views/AdsListView'
-import AdsMgrList from '../views/AdsMgrList'
-import UserProfile from '../views/UserProfile'
+import AdsListView from './views/AdsListView'
+import AdsMgrList from './views/AdsMgrList'
+import UserProfile from './views/UserProfile'
 
 export default {
   components: {
