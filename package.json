@@ -36,8 +36,5 @@
     "nativescript-worker-loader": "~0.12.1",
     "sass": "^1.26.10",
     "vue-loader": "^15.9.3"
-  },
-    "NativeScript": {
-    "id": "org.nativescript.youngcouncil.mobile"
   }
 }

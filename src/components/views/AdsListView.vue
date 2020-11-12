@@ -2,44 +2,46 @@
   <Page class="page" id="ad-list-view">
     <ActionBar title="Список событий" class="action-bar"/>
     <StackLayout>
-      <Label class="message center" text="Здесь будет список событий" />
+      <Label class="message center" text="Cписок событий" />
     </StackLayout>
     <ScrollView>
-      <StackLayout orientation="vertical">
-        <Button @tap="openAdDetail" text="open AddDetail"/>
+      <StackLayout orientation="vertical" >
 
-        <AdCard @tap="openAdDetail"/>
-        <StackLayout>
-          <Label text="Hello world2" class="title"></Label>
-        </StackLayout>
+        <AdCard
+            v-for="ad in ads" :key="ad.id"
+            :title="ad.title"
+            :annotation="ad.annotation"
+            :date="ad.date"
+            :price="ad.price"
+            ::tickets-count="ad.ticketsCount"
+            @tap="openAdDetail(ad)"
+        />
+
       </StackLayout>
     </ScrollView>
   </Page>
 </template>
 
 <script>
-// import AdDetail from "./AdDetail";
-
+import {mapState} from 'vuex'
 
 export default {
   name: "AdListView",
   components: {
     AdCard: () => import("../AdCard"),
-    // AdDetail: () => import("./AdDetail")
   },
-  data: () => ({
-    AdDetail: () => import("./AdDetail")
-  }),
+  data: () => ({}),
   methods: {
-    openAdDetail(args) {
-      const button = args.object
-      const page = button.page
-      page.frame.navigate('AdDetail')
-      // console.log('frame name ->',page.frame, ' page-id ->', page.id)
-      // this.$navigateTo(this.AdDetail).catch(err => console.log('There was an error!', err))
-      // this.$navigator.navigate('/ad-detail')
-      // Frame.topmost().navigate(() => { return this.AdDetail});
+    openAdDetail(ad) {
+      this.$navigator.navigate(
+          '/ad-detail',
+          {frame: 'ads-list', props: { ad: ad }})
     }
+  },
+  computed: {
+    ...mapState({
+      ads: state => state.ads.ads
+    })
   }
 }
 </script>

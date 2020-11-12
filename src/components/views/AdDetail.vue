@@ -1,10 +1,50 @@
 <template>
 
-  <Page class="page" >
-    <ActionBar title="Событие" class="action-bar"/>
+  <Page class="page" @loaded="showAttrs">
+    <ActionBar title="Событие" class="action-bar">
+        <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
+    </ActionBar>
     <StackLayout>
-      <Label class="message center" text="Детальная информация" />
+      <Label class="" text="Детальная информация" />
+
+      <Button @tap="goBack" text="goBack"/>
     </StackLayout>
+    <GridLayout columns="*,*" rows="auto,auto,auto,auto" class="p-12">
+      <Label
+          textWrap="true"
+          class="h1"
+          col="0"
+          row="0"
+          colSpan="2"
+      >{{ ad.title }}</Label>
+      <Label
+          textWrap="true"
+          class="h2"
+          col="0"
+          row="1"
+          colSpan="2"
+      >{{ ad.annotation }}</Label>
+      <Label
+          class="h2"
+          col="0"
+          row="2"
+      >Дата:{{ ad.date }}</Label>
+      <Label
+          class="h2"
+          col="1"
+          row="2"
+      >категория</Label>
+      <Label
+          class="h2"
+          col="0"
+          row="3"
+      >Цена: {{ ad.price }}</Label>
+      <Label
+          class="h2"
+          col="1"
+          row="3"
+      >Кол-во:{{ ad.ticketsCount }}</Label>
+    </GridLayout>
   </Page>
 
 </template>
@@ -12,7 +52,23 @@
 <script>
 
 export default {
-  name: "AdDetail"
+  name: "AdDetail",
+  props: {
+    ad: {
+      type: Object
+    }
+  },
+  methods: {
+    goBack() {
+      // this.$navigator.back({frame: 'ads-list'})
+      this.$navigateBack()
+    },
+    showAttrs(args) {
+      const object = args.object
+      const page = object.page
+      console.log(page.frame, page)
+    }
+  }
 }
 </script>
 <style scoped>

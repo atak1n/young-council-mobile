@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue'
-import App from './components/App'
+import App from './components/views/App'
 import VueDevtools from 'nativescript-vue-devtools'
 import Navigator from 'nativescript-vue-navigator'
 
@@ -16,7 +16,7 @@ if(TNS_ENV !== 'production') {
 }
 
 
-Vue.use(Navigator, { routes })
+Vue.use(Navigator, { routes } )
 
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')

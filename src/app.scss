@@ -1,8 +1,8 @@
 // NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
 @import '~@nativescript/theme/core';
-//@import './assets/css/custom.css';
-@import '~@nativescript/theme/forest';
+@import './assets/css/custom.css';
+//@import '~@nativescript/theme/forest';
 
 // Override variables here
 .fab {
@@ -18,6 +18,10 @@
 .far {
     font-family: "Font Awesome 5 Free", "fa-regular-400";
     font-weight: 400;
+}
+
+.mdi {
+    font-family: "Material Design Icons", materialdesignicons-webfont;
 }
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
