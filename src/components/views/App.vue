@@ -19,22 +19,15 @@
     <TabContentItem>
       <Navigator id="ads-list" defaultRoute="/ads-list" />
 
-<!--      <Frame id="ads-list" defaultPage="AdsListView" >-->
-<!--        <AdListView/>-->
-<!--      </Frame>-->
-
     </TabContentItem>
 
     <TabContentItem>
       <Navigator id="mgr-panel" defaultRoute="/ads-mgr-list" />
 
-<!--      <Frame id="mgr-panel" defaultPage="AdsListView" ></Frame>-->
     </TabContentItem>
 
     <TabContentItem>
       <Navigator id="profile" defaultRoute="/profile" />
-
-<!--      <Frame id="profile" defaultPage="UserProfile" ></Frame>-->
 
     </TabContentItem>
 

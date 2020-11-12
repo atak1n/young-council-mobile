@@ -1,11 +1,11 @@
 <template>
-<Page class="page">
-  <ActionBar title="управление" class="action-bar"/>
-  <StackLayout>
-    <Label class="message" text="Здесь будет управление" />
-    <Button @tap="openAdList">adverts</Button>
-  </StackLayout>
-</Page>
+  <Page class="page">
+    <ActionBar title="управление" class="action-bar"/>
+    <StackLayout>
+      <Label class="message" text="Здесь будет управление" />
+      <Button class="-primary" @tap="openAdList">adverts</Button>
+    </StackLayout>
+  </Page>
 </template>
 
 <script>

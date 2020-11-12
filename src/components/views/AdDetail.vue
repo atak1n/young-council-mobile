@@ -2,14 +2,14 @@
 
   <Page class="page" @loaded="showAttrs">
     <ActionBar title="Событие" class="action-bar">
-        <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
+        <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
     <StackLayout>
       <Label class="" text="Детальная информация" />
 
       <Button @tap="goBack" text="goBack"/>
     </StackLayout>
-    <GridLayout columns="*,*" rows="auto,auto,auto,auto" class="p-12">
+    <GridLayout columns="*,*" rows="auto,auto,auto,auto, auto" class="p-12">
       <Label
           textWrap="true"
           class="h1"
@@ -25,25 +25,30 @@
           colSpan="2"
       >{{ ad.annotation }}</Label>
       <Label
-          class="h2"
+          class="h3"
           col="0"
           row="2"
       >Дата:{{ ad.date }}</Label>
       <Label
-          class="h2"
+          class="h3"
           col="1"
           row="2"
       >категория</Label>
       <Label
-          class="h2"
+          class="h3"
           col="0"
           row="3"
       >Цена: {{ ad.price }}</Label>
       <Label
-          class="h2"
+          class="h3"
           col="1"
           row="3"
       >Кол-во:{{ ad.ticketsCount }}</Label>
+      <Button
+          col="1" row="4"
+          class="-primary text-uppercase h3"
+          text="участвовать"
+      />
     </GridLayout>
   </Page>
 
