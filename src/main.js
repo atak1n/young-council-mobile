@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue'
-import App from './components/views/App'
+import App from './views/App'
 import VueDevtools from 'nativescript-vue-devtools'
 import Navigator from 'nativescript-vue-navigator'
 

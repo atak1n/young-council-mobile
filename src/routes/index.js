@@ -1,7 +1,7 @@
-import AdsListView from "../components/views/AdsListView";
-import AdDetail from "../components/views/AdDetail";
-import AdsMgrList from "../components/views/AdsMgrList";
-import UserProfile from "../components/views/UserProfile";
+import AdsListView from "../views/AdsListView";
+import AdDetail from "../views/AdDetail";
+import AdsMgrList from "../views/AdsMgrList";
+import UserProfile from "../views/UserProfile";
 
 
 export const routes = {

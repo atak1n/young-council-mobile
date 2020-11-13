@@ -28,7 +28,7 @@ import {mapState} from 'vuex'
 export default {
   name: "AdListView",
   components: {
-    AdCard: () => import("../AdCard"),
+    AdCard: () => import("../components/AdCard"),
   },
   data: () => ({}),
   methods: {

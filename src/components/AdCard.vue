@@ -2,7 +2,7 @@
   <MDCardView
       v-on="$listeners"
       margin="12"
-      height="500"
+      height=""
       rippleColor="grey"
       borderRadius="4"
   >
@@ -12,39 +12,51 @@
           height="200"
           class="fas t-36 p-y-24 bg-primary c-white"
       />
-      <Label :text="title" height="70" class="h2"></Label>
-      <Label :text="annotation" height="70" class="h3"></Label>
-      <GridLayout columns="*,*" rows="50,50" class="bg-danger h4 p-8">
+
+      <GridLayout columns="*,*" rows="auto,auto,auto,auto," class="p-20">
+        <Label col="0"
+               row="0"
+               colSpan="2"
+               :text="title"
+               height="40"
+               class="h2"
+        />
+        <Label col="0"
+               row="1"
+               colSpan="2"
+               :text="annotation"
+               textWrap
+               height="70"
+               class="h2"
+        />
         <Label
             col="0"
-            row="0"
-            :text="date"
+            row="2"
+            :text="'Дата: ' + date"
 
-            class="title"
+            class="body2"
         />
         <Label
             col="1"
-            row="0"
+            row="2"
             :text="eventType"
 
-            class="title"
+            class="body2"
         />
         <Label
             col="0"
-            row="1"
-            :text="price"
-            class="title"
+            row="3"
+            :text="'Цена: ' + price"
+            class="body2"
         />
         <Label
             col="1"
-            row="1"
-            :text="ticketsCount"
-            class="title"
+            row="3"
+            :text="'Кол-во ' + ticketsCount"
+            class="body2"
         />
       </GridLayout>
-      <!--            <GridLayout columns="*,*" rows="1">-->
-      <!--              -->
-      <!--            </GridLayout>-->
+
     </StackLayout>
   </MDCardView>
 </template>
