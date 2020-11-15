@@ -1,6 +1,6 @@
 <template>
 
-  <Page class="page" @loaded="showAttrs">
+  <Page class="page" @loaded="setTitle">
     <ActionBar title="Событие" class="action-bar">
         <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
@@ -63,16 +63,21 @@ export default {
       type: Object
     }
   },
+  // data: () => ({
+  //   title: '',
+  // }),
   methods: {
     goBack() {
-      // this.$navigator.back({frame: 'ads-list'})
       this.$navigateBack()
     },
     showAttrs(args) {
       const object = args.object
       const page = object.page
       console.log(page.frame, page)
-    }
+    },
+    // setTitle() {
+    //   this.title = this.ad.title
+    // }
   }
 }
 </script>

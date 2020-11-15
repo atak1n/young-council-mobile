@@ -1,7 +1,9 @@
 import AdsListView from "../views/AdsListView";
 import AdDetail from "../views/AdDetail";
-import AdsMgrList from "../views/AdsMgrList";
+import MgrView from "../views/MgrView";
 import UserProfile from "../views/UserProfile";
+import MgrAdsView from "../views/MgrAdsView";
+import MgrAdDetail from "../views/MgrAdDetail";
 
 
 export const routes = {
@@ -11,8 +13,14 @@ export const routes = {
   '/ad-detail': {
     component: AdDetail
   },
-  '/ads-mgr-list': {
-    component: AdsMgrList
+  '/mgr-page': {
+    component: MgrView
+  },
+  '/mgr-my-ads': {
+    component: MgrAdsView
+  },
+  '/mgr-my-ads/ad-detail': {
+    component: MgrAdDetail
   },
   '/profile': {
     component: UserProfile

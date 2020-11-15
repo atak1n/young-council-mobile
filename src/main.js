@@ -4,11 +4,16 @@ import VueDevtools from 'nativescript-vue-devtools'
 import Navigator from 'nativescript-vue-navigator'
 
 import CardViewPlugin from '@nativescript-community/ui-material-cardview/vue';
+import RadListView from 'nativescript-ui-listview/vue';
+import RadDataForm from 'nativescript-ui-dataform/vue';
 
 import store from './store'
 import { routes } from './routes'
 
 Vue.use(CardViewPlugin);
+Vue.use(RadListView);
+Vue.use(RadDataForm);
+
 
 
 if(TNS_ENV !== 'production') {

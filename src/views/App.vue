@@ -22,7 +22,7 @@
     </TabContentItem>
 
     <TabContentItem>
-      <Navigator id="mgr-panel" defaultRoute="/ads-mgr-list" />
+      <Navigator id="mgr-panel" defaultRoute="/mgr-page" />
 
     </TabContentItem>
 

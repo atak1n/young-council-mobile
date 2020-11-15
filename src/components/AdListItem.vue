@@ -1,10 +1,10 @@
 <template>
-  <GridLayout columns="2" rows="3">
+  <GridLayout columns="auto,*" rows="*,*,*">
     <Image
         col="0"
         row="0"
         rowSpan="3"
-        class="mdi -thumb img-circle"
+        class="mdi img-circle t-10"
         src.decode="font://&#xf1056;"
     />
     <Label
@@ -16,13 +16,13 @@
     <Label
         col="1"
         row="1"
-        :text="'Всего билетов: ' + ad"
+        :text="'Всего билетов: ' + ad.ticketsCount"
         class="body"
     />
     <Label
         col="1"
         row="2"
-        :text="haveTime(ad)"
+        text="haveTime(ad)"
         class="body"
     />
   </GridLayout>
@@ -36,6 +36,14 @@ export default {
       type: Object
     }
   },
+  // data: () => ({
+  //   ad: {
+  //     title: 'название',
+  //     annotation: 'описание',
+  //     date: '27.10.20'
+  //
+  //   }
+  // }),
   methods: {
     haveTime(ad) {
       return ad.time ? `${ad.date} - ${ad.time}` : ad.date
