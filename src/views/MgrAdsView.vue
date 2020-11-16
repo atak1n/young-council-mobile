@@ -3,13 +3,17 @@
     <ActionBar title="Мои события">
       <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
-    <StackLayout class="p-12">
-      <Label text="Список моих событий"/>
-      <RadListView
-          for="item in ads"
-          @itemTap="goToAdDetail"
-      >
-        <v-template>
+    <AbsoluteLayout width="100%" height="100%">
+
+      <StackLayout class="p-12" width="100%" height="100%">
+        <Label text="Список моих событий"/>
+
+
+        <RadListView
+            for="item in ads"
+            @itemTap="goToAdDetail"
+        >
+          <v-template>
 
             <GridLayout columns="auto,*" rows="*,*,*,*">
               <Image
@@ -40,10 +44,20 @@
               <StackLayout col="0" row="3" colSpan="2" class="hr"/>
             </GridLayout>
 
-        </v-template>
-      </RadListView>
+          </v-template>
+        </RadListView>
 
-    </StackLayout>
+      </StackLayout>
+
+      <MDButton
+          top="500"
+          left="300"
+          text="+"
+          class="falseFAb c-secondary"
+          @tap="createAd"
+      />
+    </AbsoluteLayout>
+
   </Page>
 </template>
 
@@ -79,11 +93,16 @@ export default {
         frame: 'mgr-panel',
         props: { ad: item }
       })
+    },
+    createAd() {
+      this.$navigator.modal('/mgr-my-ads/ad-create', {fullscreen: true, id: 'myModal'})
     }
   },
 }
 </script>
 
 <style scoped>
+.abs {
 
+}
 </style>

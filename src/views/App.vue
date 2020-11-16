@@ -1,37 +1,44 @@
 <template>
 
-  <BottomNavigation >
-    <TabStrip>
-      <TabStripItem class="nt-tab-strip__item">
-        <Label text="Главная"></Label>
-        <Image src.decode="font://&#xf1056;" class="mdi t-36"/>
-      </TabStripItem>
-      <TabStripItem class="nt-tab-strip__item">
-        <Label text="Управление"></Label>
-        <Image src.decode="font://&#xf0c3e;" class="mdi t-36"/>
-      </TabStripItem>
-      <TabStripItem class="nt-tab-strip__item">
-        <Label text="Профиль"></Label>
-        <Image src.decode="font://&#xf0009;" class="mdi t-36"/>
-      </TabStripItem>
-    </TabStrip>
 
-    <TabContentItem>
-      <Navigator id="ads-list" defaultRoute="/ads-list" />
+  <GridLayout columns="*" rows="*">
+    <BottomNavigation col="0" row="0">
+      <TabStrip>
+        <TabStripItem class="nt-tab-strip__item">
+          <Label text="Главная"></Label>
+          <Image src.decode="font://&#xf1056;" class="mdi t-36"/>
+        </TabStripItem>
+        <TabStripItem class="nt-tab-strip__item">
+          <Label text="Управление"></Label>
+          <Image src.decode="font://&#xf0c3e;" class="mdi t-36"/>
+        </TabStripItem>
+        <TabStripItem class="nt-tab-strip__item">
+          <Label text="Профиль"></Label>
+          <Image src.decode="font://&#xf0009;" class="mdi t-36"/>
+        </TabStripItem>
+      </TabStrip>
 
-    </TabContentItem>
+      <TabContentItem>
+        <Navigator id="ads-list" defaultRoute="/ads-list" />
 
-    <TabContentItem>
-      <Navigator id="mgr-panel" defaultRoute="/mgr-page" />
+      </TabContentItem>
 
-    </TabContentItem>
+      <TabContentItem>
+        <Navigator id="mgr-panel" defaultRoute="/mgr-page" />
 
-    <TabContentItem>
-      <Navigator id="profile" defaultRoute="/profile" />
+      </TabContentItem>
 
-    </TabContentItem>
+      <TabContentItem>
+        <Navigator id="profile" defaultRoute="/profile" />
 
-  </BottomNavigation>
+      </TabContentItem>
+
+    </BottomNavigation>
+<!--    <Navigator col="0" row="0" id="myModal" defaultRoute="/mgr-my-ads/ad-create"/>-->
+
+  </GridLayout>
+
+
 
 </template>
 
@@ -75,8 +82,8 @@ ActionBar {
 }
 
 TabStrip {
-    selected-item-color: #4aae52;
-    un-selected-item-color: #666666;
-    /*highlight-color: primary;*/
+  selected-item-color: #4aae52;
+  un-selected-item-color: #666666;
+  /*highlight-color: primary;*/
 }
 </style>

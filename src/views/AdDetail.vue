@@ -1,6 +1,6 @@
 <template>
 
-  <Page class="page" @loaded="setTitle">
+  <Page class="page" >
     <ActionBar title="Событие" class="action-bar">
         <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>

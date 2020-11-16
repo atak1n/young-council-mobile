@@ -47,3 +47,17 @@ $btn-color-inverse: #ffffff;
 }
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
+
+.falseFAb {
+    elevation: 2;
+    font-size: 26;
+    border-radius: 28;
+    width: 56;
+    height: 56;
+    margin: 16;
+}
+
+ .c-secondary.falseFAb {
+    background-color: #FF5722;
+    color: #ffffff
+}

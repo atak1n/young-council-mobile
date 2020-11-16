@@ -4,6 +4,7 @@ import MgrView from "../views/MgrView";
 import UserProfile from "../views/UserProfile";
 import MgrAdsView from "../views/MgrAdsView";
 import MgrAdDetail from "../views/MgrAdDetail";
+import AdCreate from "../views/AdCreate";
 
 
 export const routes = {
@@ -21,6 +22,9 @@ export const routes = {
   },
   '/mgr-my-ads/ad-detail': {
     component: MgrAdDetail
+  },
+  '/mgr-my-ads/ad-create': {
+    component: AdCreate
   },
   '/profile': {
     component: UserProfile

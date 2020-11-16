@@ -3,10 +3,29 @@
     <ActionBar title="управление" class="action-bar"/>
     <StackLayout class="p-12">
 <!--      <Label class="h3 text-uppercase" text="Здесь будет управление" />-->
-      <Button class="-primary body2" @tap="openAdList('/mgr-my-ads')">мои события</Button>
-      <Button class="-primary body2" @tap="openAdList('/mgr-my-ads')">мои пользователи</Button>
-      <Button class="-primary body2" @tap="openAdList('/mgr-my-ads')">статистика</Button>
-      <Button class="-primary body2" @tap="openAdList('/mgr-my-ads')">хз что</Button>
+      <Button
+          class="-primary body2"
+          @tap="openAdList('/mgr-my-ads')"
+          text="мои события"
+      />
+      <Button
+          class="-primary body2"
+          @tap="openAdList('/mgr-my-ads')"
+          isEnabled="false"
+          text="мои пользователи"
+      />
+      <Button
+          class="-primary body2"
+          @tap="openAdList('/mgr-my-ads')"
+          isEnabled="false"
+          text="статистика"
+      />
+      <Button
+          class="-primary body2"
+          @tap="openAdList('/mgr-my-ads')"
+          isEnabled="false"
+          text="что-то еще"
+      />
     </StackLayout>
   </Page>
 </template>
