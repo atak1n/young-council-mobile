@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page @loaded="getArgs">
     <ActionBar title="Мои события">
       <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
@@ -50,8 +50,8 @@
       </StackLayout>
 
       <MDButton
-          top="500"
-          left="300"
+          :top="btnTopPosition"
+          :left="btnLeftPosition"
           text="+"
           class="falseFAb c-secondary"
           @tap="createAd"
@@ -63,11 +63,12 @@
 
 <script>
 import {mapState} from 'vuex'
+const platform = require("@nativescript/core/platform")
 
 export default {
   name: "MgrAdsView.vue",
   components: {
-    AdListItem: () => import('../components/AdListItem')
+    // AdListItem: () => import('../components/AdListItem')
   },
   data: () => ({
     list: [1,2,3,4,5,6,7,8,9]
@@ -81,7 +82,17 @@ export default {
   computed: {
     ...mapState({
       ads: state => state.ads.ads
-    })
+    }),
+    btnTopPosition() {
+      let screenHeight = platform.Screen.mainScreen.heightDIPs
+      // console.log(`\n\n\n\n\n topPoint ${screenHeight -100}` )
+      return screenHeight - 280
+    },
+    btnLeftPosition() {
+      let screenWidth = platform.Screen.mainScreen.widthDIPs
+      // console.log(`\n\n\n\n\n leftPoint ${screenWidth -70}` )
+      return screenWidth - 100
+    }
   },
   methods: {
     goBack() {
@@ -96,6 +107,17 @@ export default {
     },
     createAd() {
       this.$navigator.modal('/mgr-my-ads/ad-create', {fullscreen: true, id: 'myModal'})
+    },
+    getArgs() {
+      // const screenInfo = platform.Screen.mainScreen
+      console.log(`высота в пикселях ${platform.Screen.mainScreen.heightDIPs}`)
+
+      let screenHeight = platform.Screen.mainScreen.heightDIPs
+      console.log(`\n\n\n\n\n topPoint ${screenHeight -140}` )
+
+      let screenWidth = platform.Screen.mainScreen.widthDIPs
+      console.log(`\n\n\n\n\n leftPoint ${screenWidth -70}` )
+
     }
   },
 }

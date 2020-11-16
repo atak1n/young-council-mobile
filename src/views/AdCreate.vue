@@ -4,7 +4,7 @@
       <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
     </ActionBar>
     <!--    <RadDataForm :source="adForm"/>-->
-    <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form p-12 ">
+    <GridLayout columns="*,*" rows="auto, auto, auto, auto" class="nt-form p-12 ">
       <StackLayout
           col="0"
           row="0"
@@ -59,6 +59,19 @@
       </StackLayout>
 
 
+        <DatePicker
+            col="0"
+            row="3"
+            year="1980"
+            month="4"
+            day="20"
+            :date="adForm.date"
+            :minDate="minDate"
+            :maxDate="maxDate"/>
+
+
+
+
     </GridLayout>
   </Page>
 </template>
@@ -70,11 +83,15 @@ export default {
     adForm: {
       title: '',
       annotation: '',
-      // date: this.ad.date,
+      date: new Date(),
+
       // time: this.ad.time,
       price: '',
       ticketsCount: '',
-    }
+    },
+    //настроить даты
+    minDate: (new Date()).getDate() -1,
+    maxDate: (new Date()).setFullYear() + 1,
   }),
 }
 </script>
