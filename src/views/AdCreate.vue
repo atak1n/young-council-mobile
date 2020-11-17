@@ -59,18 +59,18 @@
       </StackLayout>
 
 
-        <DatePicker
-            col="0"
-            row="3"
-            year="1980"
-            month="4"
-            day="20"
-            :date="adForm.date"
-            :minDate="minDate"
-            :maxDate="maxDate"/>
-
-
-
+      <StackLayout
+          col="0"
+          row="3"
+      >
+        <Label text="Дата" class="font-weight-bold m-b-5" />
+        <TextField
+            v-model="adForm.date"
+            class="body2"
+            hint="2"
+            @tap="openDateDialog"
+        />
+      </StackLayout>
 
     </GridLayout>
   </Page>
@@ -83,16 +83,22 @@ export default {
     adForm: {
       title: '',
       annotation: '',
-      date: new Date(),
+      date: '',
 
       // time: this.ad.time,
       price: '',
       ticketsCount: '',
     },
     //настроить даты
-    minDate: (new Date()).getDate() -1,
-    maxDate: (new Date()).setFullYear() + 1,
+    // minDate: (new Date()).getDate() -1,
+    // maxDate: (new Date()).setFullYear() + 1,
   }),
+  methods: {
+    openDateDialog() {
+      this.$navigator.modal('/mgr-my-ads/picker-modal', {id: 'pickerModal'})
+          .then(data => this.adForm.date = data)
+    }
+  },
 }
 </script>
 

@@ -71,7 +71,7 @@ export default {
     // AdListItem: () => import('../components/AdListItem')
   },
   data: () => ({
-    list: [1,2,3,4,5,6,7,8,9]
+    // list: [1,2,3,4,5,6,7,8,9]
     // ad: {
     //   title: 'название',
     //   annotation: 'описание',
