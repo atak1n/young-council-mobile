@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page @loaded="setDate">
     <ActionBar title="Выбор даты" class="">
       <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
     </ActionBar>
@@ -9,11 +9,11 @@
           row="0"
           colSpan="2"
           @dateChange="showArgs"
-          @loaded="setDate"
-          :date="today"
-          v-model="date"
           :minDate="minDate"
           :maxDate="maxDate"
+          :date="today"
+          v-model="date"
+
       />
       <!--      <MDButton-->
       <!--          col="0"-->
@@ -53,26 +53,31 @@
 export default {
   name: "PickerModal.vue",
   data: () => ({
-    today: new Date(),
+    today: '',
     date: '',
     minDate: '',
     maxDate: '',
   }),
   methods: {
     setDate() {
-      this.date = this.today
-      this.minDate = this.today
-      this.maxDate = new Date(
-          this.today.getFullYear(),
-          this.today.getMonth(),
-          this.today.getDate() + 60
-      )
+
+
+      this.today = new Date();
+      this.date = new Date();
+      // this.minDate = new Date(2000, 1, 1)
+      this.minDate = new Date()
+      this.maxDate = new Date(2040, 1, 1)
+      // this.maxDate = new Date(
+      //     this.today.getFullYear(),
+      //     this.today.getMonth(),
+      //     this.today.getDate() + 60
+      // )
     },
     submit() {
       this.$modal.close(this.date)
     },
     showArgs() {
-      console.log(this.date)
+      // console.log(this.date)
     },
   },
 }

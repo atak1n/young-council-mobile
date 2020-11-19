@@ -66,7 +66,21 @@
       >
         <Label text="Дата" class="font-weight-bold m-b-5" />
         <TextField
-            v-model="showDate"
+            :text="showDate"
+            class="body2"
+            @tap="openDateDialog"
+            editable="false"
+        />
+      </StackLayout>
+
+      <StackLayout
+          col="1"
+          row="3"
+          class="nt-input"
+      >
+        <Label text="Время" class="font-weight-bold m-b-5" />
+        <TextField
+            :text="adForm.date"
             class="body2"
             @tap="openDateDialog"
             editable="false"
@@ -84,10 +98,10 @@ export default {
     adForm: {
       title: '',
       annotation: '',
-      date: '',
+      date: new Date(),
 
       // time: this.ad.time,
-      price: '',
+      price: 0,
       ticketsCount: '',
     },
     //настроить даты
@@ -97,12 +111,23 @@ export default {
   methods: {
     openDateDialog() {
       this.$navigator.modal('/mgr-my-ads/picker-modal', {fullscreen: true, id: 'pickerModal'})
-          .then(data => this.adForm.date = data)
+          .then(data => {
+            if (data.constructor === Date) this.adForm.date = data
+          })
     }
   },
   computed: {
     showDate() {
-      return this.adForm.date.toLocaleString().slice(0,9)
+      if (this.adForm.date.constructor === Date){
+        let date = this.adForm.date
+        date = date
+            .toISOString()
+            .slice(0,10)
+            .split('-')
+            .reverse().join('.')
+
+        return date
+      } else return ''
     }
   }
 }
