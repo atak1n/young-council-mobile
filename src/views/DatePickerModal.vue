@@ -1,27 +1,45 @@
 <template>
-  <Page >
+  <Page>
+    <ActionBar title="Выбор даты" class="">
+      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
+    </ActionBar>
     <GridLayout columns="auto,auto" rows="auto,auto" class="p-20">
       <DatePicker
           col="0"
           row="0"
           colSpan="2"
-          @dataChange="showArgs"
+          @dateChange="showArgs"
           @loaded="setDate"
           :date="today"
+          v-model="date"
           :minDate="minDate"
           :maxDate="maxDate"
       />
-      <MDButton
+      <!--      <MDButton-->
+      <!--          col="0"-->
+      <!--          row="1"-->
+      <!--          text="отмена"-->
+      <!--          variant="outline"-->
+      <!--          @tap="$modal.close"-->
+      <!--      />-->
+      <!--      <MDButton-->
+      <!--          col="1"-->
+      <!--          row="1"-->
+      <!--          text="ок"-->
+      <!--          @tap="submit"-->
+      <!--      />-->
+      <Button
           col="0"
           row="1"
           text="отмена"
-          variant="outline"
+          class="-outline"
           @tap="$modal.close"
       />
-      <MDButton
+      <Button
           col="1"
           row="1"
           text="ок"
+          class="-primary"
           @tap="submit"
       />
     </GridLayout>
@@ -42,6 +60,7 @@ export default {
   }),
   methods: {
     setDate() {
+      this.date = this.today
       this.minDate = this.today
       this.maxDate = new Date(
           this.today.getFullYear(),
@@ -50,10 +69,10 @@ export default {
       )
     },
     submit() {
-      this.$modal.close(this.today)
+      this.$modal.close(this.date)
     },
     showArgs() {
-      console.log(this.today.getDate())
+      console.log(this.date)
     },
   },
 }

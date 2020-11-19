@@ -40,7 +40,7 @@
             v-model="adForm.price"
             class="body2"
             hint="100"
-            KeyboardType="number"
+            keyboardType="number"
         />
       </StackLayout>
 
@@ -54,7 +54,7 @@
             v-model="adForm.ticketsCount"
             class="body2"
             hint="2"
-            KeyboardType="number"
+            keyboardType="number"
         />
       </StackLayout>
 
@@ -62,13 +62,14 @@
       <StackLayout
           col="0"
           row="3"
+          class="nt-input"
       >
         <Label text="Дата" class="font-weight-bold m-b-5" />
         <TextField
-            v-model="adForm.date"
+            v-model="showDate"
             class="body2"
-            hint="2"
             @tap="openDateDialog"
+            editable="false"
         />
       </StackLayout>
 
@@ -95,10 +96,15 @@ export default {
   }),
   methods: {
     openDateDialog() {
-      this.$navigator.modal('/mgr-my-ads/picker-modal', {id: 'pickerModal'})
+      this.$navigator.modal('/mgr-my-ads/picker-modal', {fullscreen: true, id: 'pickerModal'})
           .then(data => this.adForm.date = data)
     }
   },
+  computed: {
+    showDate() {
+      return this.adForm.date.toLocaleString().slice(0,9)
+    }
+  }
 }
 </script>
 

@@ -5,7 +5,7 @@ import UserProfile from "../views/UserProfile";
 import MgrAdsView from "../views/MgrAdsView";
 import MgrAdDetail from "../views/MgrAdDetail";
 import AdCreate from "../views/AdCreate";
-import PickerModal from "../views/PickerModal";
+import PickerModal from "../views/DatePickerModal";
 
 
 export const routes = {
