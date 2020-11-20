@@ -6,12 +6,10 @@
     <AbsoluteLayout width="100%" height="100%">
 
       <StackLayout class="p-12" width="100%" height="100%">
-        <Label text="Список моих событий"/>
-
-
         <RadListView
             for="item in ads"
             @itemTap="goToAdDetail"
+            class="m-y-12"
         >
           <v-template>
 

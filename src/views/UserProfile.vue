@@ -1,6 +1,6 @@
 <template>
 <Page class="page">
-  <ActionBar title="профиль" class="action-bar"/>
+  <ActionBar title="Мой пррофиль" class="action-bar"/>
   <StackLayout>
     <Label class="h2 text-center" text="Здесь будет профиль" />
   </StackLayout>

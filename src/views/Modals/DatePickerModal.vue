@@ -13,7 +13,6 @@
           :maxDate="maxDate"
           :date="today"
           v-model="date"
-
       />
       <!--      <MDButton-->
       <!--          col="0"-->

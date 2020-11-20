@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar title="управление" class="action-bar"/>
+    <ActionBar title="Панель управления" class="action-bar"/>
     <StackLayout class="p-12">
 <!--      <Label class="h3 text-uppercase" text="Здесь будет управление" />-->
       <Button

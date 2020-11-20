@@ -1,6 +1,6 @@
 <template>
   <Page @loaded="setAdForm">
-    <ActionBar title="Моё событие" class="action-bar">
+    <ActionBar title="Событие детали" class="action-bar">
       <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
     <!--    <RadDataForm :source="adForm"/>-->
