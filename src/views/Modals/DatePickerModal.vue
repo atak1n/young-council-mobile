@@ -31,14 +31,14 @@
           col="0"
           row="1"
           text="отмена"
-          class="-outline"
+          class="-outline -rounded-sm text-uppercase"
           @tap="$modal.close"
       />
       <Button
           col="1"
           row="1"
           text="ок"
-          class="-primary"
+          class="-primary -rounded-sm text-uppercase"
           @tap="submit"
       />
     </GridLayout>

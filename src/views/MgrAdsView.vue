@@ -51,7 +51,7 @@
           :top="btnTopPosition"
           :left="btnLeftPosition"
           text="+"
-          class="falseFAb c-secondary"
+          class="falseFAb c-secondary t-25"
           @tap="createAd"
       />
     </AbsoluteLayout>
