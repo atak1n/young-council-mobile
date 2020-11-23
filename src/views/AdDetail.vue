@@ -63,14 +63,20 @@
           />
         </StackLayout>
       </GridLayout>
-      <GridLayout class="nt-input" rows="auto, auto" columns="auto,*">
+      <GridLayout class="nt-input -sides" rows="auto, auto" columns="auto,*">
         <Label
             text.decode="&#xF03EB;"
+            class="form-icon mdi bg-primary"
+            textWrap="true"
+            verticalAlignment="bottom"
             col="0"
             row="1"
-            class="form-icon mdi"
         />
-        <Label text="Кол-во билетов" class="font-weight-bold m-b-5" col="1" row="0"/>
+        <Label
+            text="Кол-во билетов"
+            class="font-weight-bold m-b-5"
+            col="1"
+            row="0"/>
         <TextField
             v-model="ad.ticketsCount"
             editable="false"
@@ -90,7 +96,7 @@
         >
           <FormattedString>
             <Span text.decode="&#xF03EB;" class="mdi"/>
-            <Span text="ad.ticketsCount"></Span>
+            <Span :text="ad.ticketsCount"></Span>
           </FormattedString>
         </TextField>
       </StackLayout>
@@ -128,7 +134,7 @@ export default {
 </script>
 <style scoped>
 .form-icon.mdi {
-  font-size: 20px;
+  font-size: 24px;
   margin-right: 10px;
 }
 </style>
