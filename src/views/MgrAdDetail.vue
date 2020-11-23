@@ -4,16 +4,17 @@
       <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
     <!--    <RadDataForm :source="adForm"/>-->
-    <AbsoluteLayout width="100%" height="100%">
+    <AbsoluteLayout class="m-t-10" width="100%" height="100%">
       <MDButton
           top="-10"
           :left="btnLeftPosition"
           text.decode="&#xF03EB;"
-          class="falseFAb c-secondary mdi t-30 "
+          class="falseFAb mdi t-30"
+          :class="[editOn ? '-primary' : 'c-secondary']"
           @tap="enableEdit"
       />
 
-      <StackLayout class="" width="100%" height="100%">
+      <StackLayout  width="100%" height="100%">
         <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">
           <StackLayout
               col="0"
@@ -116,7 +117,13 @@ export default {
       this.adForm.ticketsCount = this.ad.ticketsCount
     },
     enableEdit() {
-      this.editOn = !this.editOn
+      if (this.editOn) {
+        this.setAdForm()
+        this.editOn = false
+      } else {
+        this.editOn = !this.editOn
+      }
+
     },
     submitEdit() {
       let ad = this.ad
@@ -124,7 +131,18 @@ export default {
         ad[key] = this.adForm[key]
         console.log(key, ad[key])
       }
-      this.$store.dispatch('modifyAd', ad)
+      this.$store.dispatch('modifyAd', ad).then(
+          () => {
+            alert({
+              message: 'Событие отредактировано',
+              okButtonText: 'OK',
+              cancelable: false
+            })
+            this.editOn = false
+
+          }
+      )
+
     }
   },
   computed: {

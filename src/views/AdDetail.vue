@@ -2,54 +2,99 @@
 
   <Page class="page" >
     <ActionBar title="Событие" class="action-bar">
-        <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
+      <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
-    <StackLayout>
-      <Label class="" text="Детальная информация" />
 
-      <Button @tap="goBack" text="goBack"/>
+    <StackLayout >
+      <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">
+        <StackLayout
+            col="0"
+            row="0"
+            colSpan="2"
+            class="nt-input body"
+        >
+          <Label text="Название" class=" font-weight-bold m-b-5" />
+          <TextField
+              hint="Название"
+              v-model="ad.title"
+              editable="false"
+              class="body2"
+          />
+        </StackLayout>
+
+        <StackLayout
+            col="0"
+            row="1"
+            colSpan="2"
+            class="nt-input"
+        >
+          <Label text="Описание" class=" font-weight-bold m-b-5" />
+          <TextView
+              v-model="ad.annotation"
+              class="-border body2"
+              editable="false"
+          />
+        </StackLayout>
+
+
+        <StackLayout
+            col="0"
+            row="2"
+            class="nt-input"
+        >
+          <Label text="Цена" class="font-weight-bold m-b-5" />
+          <TextField
+              v-model="ad.price"
+              editable="false"
+              class="body2"
+          />
+        </StackLayout>
+
+        <StackLayout
+            col="1"
+            row="2"
+            class="nt-input"
+        >
+          <Label text="Кол-во билетов" class="font-weight-bold m-b-5" col="1" row="0"/>
+          <TextField
+              v-model="ad.ticketsCount"
+              editable="false"
+              class="body2"
+          />
+        </StackLayout>
+      </GridLayout>
+      <GridLayout class="nt-input" rows="auto, auto" columns="auto,*">
+        <Label
+            text.decode="&#xF03EB;"
+            col="0"
+            row="1"
+            class="form-icon mdi"
+        />
+        <Label text="Кол-во билетов" class="font-weight-bold m-b-5" col="1" row="0"/>
+        <TextField
+            v-model="ad.ticketsCount"
+            editable="false"
+            class="body2"
+            col="1"
+            row="1"
+        />
+      </GridLayout>
+
+      <StackLayout
+          class="nt-input"
+      >
+        <Label text="Кол-во билетов" class="font-weight-bold m-b-5" col="1" row="0"/>
+        <TextField
+            editable="false"
+            class="body2"
+        >
+          <FormattedString>
+            <Span text.decode="&#xF03EB;" class="mdi"/>
+            <Span text="ad.ticketsCount"></Span>
+          </FormattedString>
+        </TextField>
+      </StackLayout>
     </StackLayout>
-    <GridLayout columns="*,*" rows="auto,auto,auto,auto, auto" class="p-12">
-      <Label
-          textWrap="true"
-          class="h1"
-          col="0"
-          row="0"
-          colSpan="2"
-      >{{ ad.title }}</Label>
-      <Label
-          textWrap="true"
-          class="h2"
-          col="0"
-          row="1"
-          colSpan="2"
-      >{{ ad.annotation }}</Label>
-      <Label
-          class="h3"
-          col="0"
-          row="2"
-      >Дата:{{ ad.date }}</Label>
-      <Label
-          class="h3"
-          col="1"
-          row="2"
-      >категория</Label>
-      <Label
-          class="h3"
-          col="0"
-          row="3"
-      >Цена: {{ ad.price }}</Label>
-      <Label
-          class="h3"
-          col="1"
-          row="3"
-      >Кол-во:{{ ad.ticketsCount }}</Label>
-      <Button
-          col="1" row="4"
-          class="-primary text-uppercase h3"
-          text="участвовать"
-      />
-    </GridLayout>
   </Page>
 
 </template>
@@ -82,5 +127,8 @@ export default {
 }
 </script>
 <style scoped>
-
+.form-icon.mdi {
+  font-size: 20px;
+  margin-right: 10px;
+}
 </style>

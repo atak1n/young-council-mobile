@@ -1,14 +1,14 @@
 // NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
 
-      // хотелось бы такой ститль
-      //primary: #4caf50,
-      //secondary: #ff9800,
-      //accent: #2196f3,
-      //error: #f44336,
-      //warning: #ffeb3b,
-      //info: #3f51b5,
-      //success: #cddc39
+// хотелось бы такой ститль
+//primary: #4caf50,
+//secondary: #ff9800,
+//accent: #2196f3,
+//error: #f44336,
+//warning: #ffeb3b,
+//info: #3f51b5,
+//success: #cddc39
 
 //
 $info: #17a2b8;
@@ -19,10 +19,10 @@ $error: #dc3545;
 $complementary: #4caf50;
 $complementary-color: #ffffff;
 
- //Accent
+//Accent
 $accent: #4caf50;
 
- //Buttons
+//Buttons
 $btn-color-inverse: #ffffff;
 
 
@@ -32,35 +32,39 @@ $btn-color-inverse: #ffffff;
 
 // Override variables here
 .fab {
-    font-family: "Font Awesome 5 Brands", "fa-brands-400";
-    font-weight: 400;
+  font-family: "Font Awesome 5 Brands", "fa-brands-400";
+  font-weight: 400;
 }
 
 .fas {
-    font-family: "Font Awesome 5 Free", "fa-solid-900";
-    font-weight: 900;
+  font-family: "Font Awesome 5 Free", "fa-solid-900";
+  font-weight: 900;
 }
 
 .far {
-    font-family: "Font Awesome 5 Free", "fa-regular-400";
-    font-weight: 400;
+  font-family: "Font Awesome 5 Free", "fa-regular-400";
+  font-weight: 400;
 }
 
 .mdi {
-    font-family: "Material Design Icons", materialdesignicons-webfont;
+  font-family: "Material Design Icons", materialdesignicons-webfont;
 }
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
 
 .falseFAb {
-    elevation: 2;
-    border-radius: 28;
-    width: 56;
-    height: 56;
-    margin: 16;
+  elevation: 2;
+  border-radius: 28;
+  width: 56;
+  height: 56;
+  margin: 16;
 }
 
- .c-secondary.falseFAb {
-    background-color: #FF5722;
-    color: #ffffff
+.c-secondary.falseFAb {
+  background-color: #FF5722;
+  color: #ffffff
+}
+.-primary.falseFAb {
+  background-color: #4caf50;
+  color: #ffffff
 }

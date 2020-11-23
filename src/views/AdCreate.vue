@@ -102,11 +102,19 @@
         />
       </StackLayout>
 
+<!--      <MDButton-->
+<!--          col="1"-->
+<!--          row="5"-->
+<!--          text="создать"-->
+<!--          @tap="createAd"-->
+<!--          class="rounded m-y-24"-->
+<!--      />-->
+
       <Button
           col="1"
           row="5"
           text="создать"
-          class="-primary -rounded-sm m-y-24"
+          class="-primary text-uppercase m-y-24"
           @tap="createAd"
       />
 
