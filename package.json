@@ -26,7 +26,7 @@
     "nativescript-vue": "^2.8.2",
     "nativescript-vue-devtools": "^1.4.0",
     "nativescript-vue-navigator": "^1.2.0",
-    "nativescript-vue-shadow": "^0.1.0",
+    "nativescript-vue-shadow-ns-7": "^10.1.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {

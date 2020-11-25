@@ -2,7 +2,7 @@
   <Page class="page" id="ad-list-view">
     <ActionBar title="Список событий" class="action-bar"/>
     <StackLayout>
-      <Label class="message center" text="Cписок событий" />
+      <Label class="message" text="Cписок событий" />
     </StackLayout>
     <ScrollView>
       <StackLayout orientation="vertical" >
@@ -16,6 +16,7 @@
             :price="ad.price"
             ::tickets-count="ad.ticketsCount"
             @tap="openAdDetail(ad)"
+            v-shadow="4"
         />
 
       </StackLayout>

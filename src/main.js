@@ -3,21 +3,23 @@ import App from './views/App'
 import VueDevtools from 'nativescript-vue-devtools'
 import Navigator from 'nativescript-vue-navigator'
 
-import CardViewPlugin from '@nativescript-community/ui-material-cardview/vue';
+import CardViewPlugin from '@nativescript-community/ui-material-cardview/vue'
 import ButtonPlugin from '@nativescript-community/ui-material-button/vue'
 
-import RadListView from 'nativescript-ui-listview/vue';
-import RadDataForm from 'nativescript-ui-dataform/vue';
-import NSVueShadow from 'nativescript-vue-shadow'
+import RadListView from 'nativescript-ui-listview/vue'
+import RadDataForm from 'nativescript-ui-dataform/vue'
+
+import NSVueShadow from 'nativescript-vue-shadow-ns-7'
+
 
 import store from './store'
 import { routes } from './routes'
 
-Vue.use(CardViewPlugin);
-Vue.use(RadListView);
-Vue.use(ButtonPlugin);
+Vue.use(CardViewPlugin)
+Vue.use(RadListView)
+Vue.use(ButtonPlugin)
 
-Vue.use(RadDataForm);
+Vue.use(RadDataForm)
 Vue.use(NSVueShadow)
 
 

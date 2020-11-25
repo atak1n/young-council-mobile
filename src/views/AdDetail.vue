@@ -5,14 +5,15 @@
       <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
 
-    <StackLayout class="nt-form">
+    <GridLayout rows="auto,auto,auto,auto, auto, auto" class="nt-form">
       <!--      <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">-->
 
       <!--      Название события-->
       <StackLayout
+          row="0"
           class="nt-input body"
       >
-        <Label text="Название" class=" font-weight-bold m-b-5" />
+        <Label text="Название" class="" />
         <TextField
             hint="Название"
             v-model="ad.title"
@@ -21,120 +22,144 @@
         />
       </StackLayout>
 
-      <!--      описание события-->
       <StackLayout
-          col="0"
           row="1"
-          colSpan="2"
+          class="nt-input body"
+      >
+        <Label text="Название" class="" />
+        <TextField
+            hint="Название"
+            v-model="ad.eventType.name"
+            editable="false"
+            class="body2"
+        />
+      </StackLayout>
+
+      <!--      описание события-->
+      <StackLayout row="2"
           class="nt-input"
       >
-        <Label text="Описание" class=" font-weight-bold m-b-5" />
+        <Label text="Описание" class="m-b-5" />
         <TextView
             v-model="ad.annotation"
             class="-border body2"
             editable="false"
         />
+<!--        <StackLayout class="hr"/>-->
       </StackLayout>
 
       <!--цена события-->
-      <GridLayout columns="*, *">
-        <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
-          <Label
-              text.decode="&#xF03EB;"
-              class="form-icon mdi c-grey"
-              textWrap="true"
-              verticalAlignment="bottom"
-              col="0"
-              row="1"
-          />
-          <Label
-              text="Дата"
-              class="font-weight-bold m-b-5"
-              col="1"
-              row="0"/>
-          <TextField
-              v-model="ad.date"
-              editable="false"
-              class="body2"
-              col="1"
-              row="1"
-          />
+
+        <GridLayout row="3" columns="*, *">
+          <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
+            <Label
+                text.decode="&#xF00ED;"
+                class="form-icon mdi"
+                textWrap="true"
+                verticalAlignment="bottom"
+                col="0"
+                row="1"
+            />
+            <Label
+                text="Дата"
+                class=""
+                col="1"
+                row="0"/>
+            <TextField
+                v-model="ad.date"
+                editable="false"
+                class="body2"
+                col="1"
+                row="1"
+            />
+          </GridLayout>
+
+          <GridLayout col="1" row="0" class="nt-input" rows="auto, auto" columns="auto,*">
+            <Label
+                text.decode="&#xF0150;"
+                class="form-icon mdi c-grey"
+                textWrap="true"
+                verticalAlignment="bottom"
+                col="0"
+                row="1"
+            />
+            <Label
+                text="Время"
+                class=""
+                col="1"
+                row="0"/>
+            <TextField
+                v-model="ad.time"
+                editable="false"
+                class="body2"
+                col="1"
+                row="1"
+            />
+          </GridLayout>
         </GridLayout>
 
-        <GridLayout col="1" row="0" class="nt-input" rows="auto, auto" columns="auto,*">
-          <Label
-              text.decode="&#xF03EB;"
-              class="form-icon mdi c-grey"
-              textWrap="true"
-              verticalAlignment="bottom"
-              col="0"
-              row="1"
-          />
-          <Label
-              text="Время"
-              class="font-weight-bold m-b-5"
-              col="1"
-              row="0"/>
-          <TextField
-              v-model="ad.time"
-              editable="false"
-              class="body2"
-              col="1"
-              row="1"
-          />
+
+
+        <GridLayout row="4" columns="*, *">
+          <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
+            <Label
+                text.decode="&#xF01B1;"
+                class="form-icon mdi"
+                textWrap="true"
+                verticalAlignment="bottom"
+                col="0"
+                row="1"
+            />
+            <Label
+                text="Цена"
+                class=""
+                col="1"
+                row="0"/>
+            <TextField
+                v-model="ad.price"
+                editable="false"
+                class="body2"
+                col="1"
+                row="1"
+            />
+          </GridLayout>
+
+          <GridLayout col="1" class="nt-input" rows="auto, auto" columns="auto,*">
+            <Label
+                text.decode="&#xF0516;"
+                class="form-icon mdi"
+                textWrap="true"
+                verticalAlignment="bottom"
+                col="0"
+                row="1"
+            />
+            <Label
+                text="Кол-во билетов"
+                class=""
+                col="1"
+                row="0"/>
+            <TextField
+                v-model="ad.ticketsCount"
+                editable="false"
+                class="body2"
+                col="1"
+                row="1"
+            />
+          </GridLayout>
         </GridLayout>
+
+      <GridLayout row="5" rows="auto">
+        <MDButton
+          row="0"
+          text="Принять участие"
+          color="primary"
+          :class="submit ? '' : 'c-bg-orange' "
+          fontSize="16"
+          @tap="singIn"
+      />
       </GridLayout>
 
-
-      <GridLayout columns="*, *">
-        <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
-          <Label
-              text.decode="&#xF03EB;"
-              class="form-icon mdi c-grey"
-              textWrap="true"
-              verticalAlignment="bottom"
-              col="0"
-              row="1"
-          />
-          <Label
-              text="Цена"
-              class="font-weight-bold m-b-5"
-              col="1"
-              row="0"/>
-          <TextField
-              v-model="ad.price"
-              editable="false"
-              class="body2"
-              col="1"
-              row="1"
-          />
-        </GridLayout>
-
-        <GridLayout col="1" class="nt-input" rows="auto, auto" columns="auto,*">
-          <Label
-              text.decode="&#xF03EB;"
-              class="form-icon mdi c-grey"
-              textWrap="true"
-              verticalAlignment="bottom"
-              col="0"
-              row="1"
-          />
-          <Label
-              text="Кол-во билетов"
-              class="font-weight-bold m-b-5"
-              col="1"
-              row="0"/>
-          <TextField
-              v-model="ad.ticketsCount"
-              editable="false"
-              class="body2"
-              col="1"
-              row="1"
-          />
-        </GridLayout>
-      </GridLayout>
-
-    </StackLayout>
+    </GridLayout>
 
 
     <!--      <StackLayout-->
@@ -166,9 +191,9 @@ export default {
       type: Object
     }
   },
-  // data: () => ({
-  //   title: '',
-  // }),
+  data: () => ({
+    submit: false,
+  }),
   methods: {
     goBack() {
       this.$navigateBack()
@@ -178,6 +203,9 @@ export default {
       const page = object.page
       console.log(page.frame, page)
     },
+    singIn() {
+      this.submit = !this.submit
+    }
     // setTitle() {
     //   this.title = this.ad.title
     // }
@@ -188,5 +216,6 @@ export default {
 .form-icon.mdi {
   font-size: 24px;
   margin-right: 10px;
+  color: #777777;
 }
 </style>
