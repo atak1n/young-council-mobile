@@ -8,6 +8,7 @@ import ButtonPlugin from '@nativescript-community/ui-material-button/vue'
 
 import RadListView from 'nativescript-ui-listview/vue';
 import RadDataForm from 'nativescript-ui-dataform/vue';
+import NSVueShadow from 'nativescript-vue-shadow'
 
 import store from './store'
 import { routes } from './routes'
@@ -17,6 +18,7 @@ Vue.use(RadListView);
 Vue.use(ButtonPlugin);
 
 Vue.use(RadDataForm);
+Vue.use(NSVueShadow)
 
 
 
