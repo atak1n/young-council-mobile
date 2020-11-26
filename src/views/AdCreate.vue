@@ -110,11 +110,14 @@
 <!--          class="rounded m-y-24"-->
 <!--      />-->
 
-      <Button
+      <MDButton
           col="1"
           row="5"
           text="создать"
-          class="-primary text-uppercase m-y-24"
+          color="white"
+          class="m-y-24"
+          fontSize="16"
+          borderRadius="4"
           @tap="createAd"
       />
 

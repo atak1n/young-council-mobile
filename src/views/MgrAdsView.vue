@@ -5,11 +5,10 @@
     </ActionBar>
     <AbsoluteLayout width="100%" height="100%">
 
-      <StackLayout class="p-12" width="100%" height="100%">
+      <StackLayout class="p-x-12" width="100%" height="100%">
         <RadListView
             for="item in ads"
             @itemTap="goToAdDetail"
-            class="m-y-12"
         >
           <v-template>
 
@@ -18,7 +17,7 @@
                   col="0"
                   row="0"
                   rowSpan="3"
-                  class="mdi -thumb img-circle bg-primary p-4"
+                  class="mdi -thumb img-circle bg-primary p-5"
                   src.decode="font://&#xf1056;"
               />
               <Label
@@ -122,7 +121,7 @@ export default {
 </script>
 
 <style scoped>
-.abs {
-
+image.mdi {
+  font-size: 70px;
 }
 </style>

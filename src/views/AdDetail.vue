@@ -161,7 +161,7 @@
           <MDButton
               row="0"
               :text="submit ? 'отменить участие' : 'Принять участие' "
-              color="primary"
+              color="white"
               :class="submit ? 'bg-primary' : 'c-bg-orange'"
               fontSize="16"
               borderRadius="4"

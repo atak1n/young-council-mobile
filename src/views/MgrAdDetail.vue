@@ -15,29 +15,42 @@
       />
 
       <StackLayout  width="100%" height="100%">
-        <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">
+        <GridLayout rows="auto,auto,auto,auto, auto, auto" class="nt-form">
+
+          <!--      Название события-->
           <StackLayout
-              col="0"
               row="0"
-              colSpan="2"
               class="nt-input body"
           >
-            <Label text="Название" class=" font-weight-bold m-b-5" />
-            <TextField
+            <Label text="Название"/>
+            <TextView
                 hint="Название"
                 v-model="adForm.title"
                 :editable="editOn"
+                class="-border body2"
+            />
+          </StackLayout>
+
+          <!--          Категория события-->
+          <StackLayout
+              row="1"
+              class="nt-input body"
+          >
+            <Label text="Категоря события" class="" />
+            <TextField
+                hint="Название"
+                v-model="adForm.eventType.name"
+                editable="false"
                 class="body2"
             />
           </StackLayout>
 
+          <!--Описание события-->
           <StackLayout
-              col="0"
-              row="1"
-              colSpan="2"
+              row="2"
               class="nt-input"
           >
-            <Label text="Описание" class=" font-weight-bold m-b-5" />
+            <Label text="Описание" />
             <TextView
                 v-model="adForm.annotation"
                 class="-border body2"
@@ -45,37 +58,112 @@
             />
           </StackLayout>
 
+          <!--          Дата и время-->
+          <GridLayout row="3" columns="*, *">
+            <!--Дата-->
+            <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
+              <Label
+                  text.decode="&#xF00ED;"
+                  class="form-icon mdi"
+                  textWrap="true"
+                  verticalAlignment="bottom"
+                  col="0"
+                  row="1"
+              />
+              <Label
+                  text="Дата"
+                  class=""
+                  col="1"
+                  row="0"/>
+              <TextField
+                  v-model="adForm.date"
+                  :editable="editOn"
+                  class="body2"
+                  col="1"
+                  row="1"
+              />
+            </GridLayout>
 
-          <StackLayout
-              col="0"
-              row="2"
-              class="nt-input"
-          >
-            <Label text="Цена" class="font-weight-bold m-b-5" />
-            <TextField
-                v-model="adForm.price"
-                :editable="editOn"
-                class="body2"
-            />
-          </StackLayout>
+            <!--Время-->
+            <GridLayout col="1" row="0" class="nt-input" rows="auto, auto" columns="auto,*">
+              <Label
+                  text.decode="&#xF0150;"
+                  class="form-icon mdi c-grey"
+                  textWrap="true"
+                  verticalAlignment="bottom"
+                  col="0"
+                  row="1"
+              />
+              <Label
+                  text="Время"
+                  class=""
+                  col="1"
+                  row="0"/>
+              <TextField
+                  v-model="adForm.time"
+                  :editable="editOn"
+                  class="body2"
+                  col="1"
+                  row="1"
+              />
+            </GridLayout>
+          </GridLayout>
 
-          <StackLayout
-              col="1"
-              row="2"
-              class="nt-input"
-          >
-            <Label text="Кол-во билетов" class="font-weight-bold m-b-5" />
-            <TextField
-                v-model="adForm.ticketsCount"
-                :editable="editOn"
-                class="body2"
-            />
-          </StackLayout>
+          <!--Цена и Количество билетов-->
+          <GridLayout row="4" columns="*, *">
+            <!--Цена-->
+            <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
+              <Label
+                  text.decode="&#xF01B1;"
+                  class="form-icon mdi"
+                  textWrap="true"
+                  verticalAlignment="bottom"
+                  col="0"
+                  row="1"
+              />
+              <Label
+                  text="Цена"
+                  class=""
+                  col="1"
+                  row="0"/>
+              <TextField
+                  v-model="adForm.price"
+                  :editable="editOn"
+                  class="body2"
+                  col="1"
+                  row="1"
+              />
+            </GridLayout>
+            <!--Количество-->
+            <GridLayout col="1" class="nt-input" rows="auto, auto" columns="auto,*">
+              <Label
+                  text.decode="&#xF0516;"
+                  class="form-icon mdi"
+                  textWrap="true"
+                  verticalAlignment="bottom"
+                  col="0"
+                  row="1"
+              />
+              <Label
+                  text="Кол-во билетов"
+                  class=""
+                  col="1"
+                  row="0"/>
+              <TextField
+                  v-model="adForm.ticketsCount"
+                  :editable="editOn"
+                  class="body2 "
+                  col="1"
+                  row="1"
+              />
+            </GridLayout>
+          </GridLayout>
         </GridLayout>
-        <Button
+        <MDButton
             v-if="editOn"
-            class="-primary rounded text-uppercase"
             text="подтвердить изменения"
+            color="white"
+            fontSize="16"
             @tap="submitEdit"
         />
       </StackLayout>
@@ -99,9 +187,10 @@ export default {
     editOn: false,
     adForm: {
       title: '',
+      eventType: '',
       annotation: '',
-      // date: this.ad.date,
-      // time: this.ad.time,
+      date: '',
+      time: '',
       price: 0,
       ticketsCount: '',
     }
@@ -113,6 +202,9 @@ export default {
     setAdForm() {
       this.adForm.title = this.ad.title
       this.adForm.annotation = this.ad.annotation
+      this.adForm.eventType = this.ad.eventType
+      this.adForm.date = this.ad.date
+      this.adForm.time = this.ad.time
       this.adForm.price = this.ad.price
       this.adForm.ticketsCount = this.ad.ticketsCount
     },
@@ -161,5 +253,14 @@ export default {
 </script>
 
 <style scoped>
+  .form-icon.mdi {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #777777;
+  }
+
+  .-border {
+    border-radius: 8px;
+  }
 
 </style>

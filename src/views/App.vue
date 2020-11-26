@@ -2,8 +2,8 @@
 
 
   <GridLayout columns="*" rows="*">
-    <BottomNavigation col="0" row="0">
-      <TabStrip>
+    <BottomNavigation col="0" row="0" >
+      <TabStrip v-shadow="4">
         <TabStripItem class="nt-tab-strip__item">
           <Label text="Главная"></Label>
           <Image src.decode="font://&#xf1056;" class="mdi t-36"/>
@@ -69,10 +69,10 @@ export default {
 </script>
 
 <style scoped>
-ActionBar {
-  background-color: #53ba82;
-  color: #ffffff;
-}
+/*ActionBar {*/
+/*  background-color: #53ba82;*/
+/*  color: #ffffff;*/
+/*}*/
 
 .message {
   vertical-align: center;
@@ -80,6 +80,7 @@ ActionBar {
   font-size: 20;
   color: #333333;
 }
+
 
 TabStrip {
   selected-item-color: #4aae52;
