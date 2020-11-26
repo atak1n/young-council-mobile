@@ -5,50 +5,61 @@
       <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
     </ActionBar>
 
-    <GridLayout rows="auto,auto,auto,auto, auto, auto" class="nt-form">
-      <!--      <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">-->
+    <FlexboxLayout flexDirection="column">
+    <MDCardView
+        v-on="$listeners"
+        margin="12"
+        height=""
+        borderRadius="4"
+        v-shadow="4"
+        orientation="vertical"
+        flexShrink="1"
+    >
+      <GridLayout rows="auto,auto,auto,auto, auto, auto" class="nt-form">
+        <!--      <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">-->
 
-      <!--      Название события-->
-      <StackLayout
-          row="0"
-          class="nt-input body"
-      >
-        <Label text="Название" class="" />
-        <TextField
-            hint="Название"
-            v-model="ad.title"
-            editable="false"
-            class="body2"
-        />
-      </StackLayout>
+<!--      <FlexboxLayout flexDirection="column">-->
+        <!--      Название события-->
+        <StackLayout
+            row="0"
+            class="nt-input body"
+        >
+          <Label text="Название" class="" />
+          <TextView
+              hint="Название"
+              v-model="ad.title"
+              editable="false"
+              class="body2"
+          />
+        </StackLayout>
 
-      <StackLayout
-          row="1"
-          class="nt-input body"
-      >
-        <Label text="Название" class="" />
-        <TextField
-            hint="Название"
-            v-model="ad.eventType.name"
-            editable="false"
-            class="body2"
-        />
-      </StackLayout>
+        <StackLayout
+            row="1"
+            class="nt-input body"
+        >
+          <Label text="Категоря события" class="" />
+          <TextField
+              hint="Название"
+              v-model="ad.eventType.name"
+              editable="false"
+              class="body2"
+          />
+        </StackLayout>
 
-      <!--      описание события-->
-      <StackLayout row="2"
-          class="nt-input"
-      >
-        <Label text="Описание" class="m-b-5" />
-        <TextView
-            v-model="ad.annotation"
-            class="-border body2"
-            editable="false"
-        />
-<!--        <StackLayout class="hr"/>-->
-      </StackLayout>
+        <!--      описание события-->
+        <StackLayout row="2"
+                     class="nt-input"
+        >
+          <Label text="Описание" class="" />
+          <TextView
+              v-model="ad.annotation"
+              class="body2"
+              editable="false"
+          />
+          <!--        <StackLayout class="hr"/>-->
+        </StackLayout>
 
-      <!--цена события-->
+        <!--цена события-->
 
         <GridLayout row="3" columns="*, *">
           <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
@@ -98,8 +109,6 @@
           </GridLayout>
         </GridLayout>
 
-
-
         <GridLayout row="4" columns="*, *">
           <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
             <Label
@@ -141,26 +150,29 @@
             <TextField
                 v-model="ad.ticketsCount"
                 editable="false"
-                class="body2"
+                class="body2 "
                 col="1"
                 row="1"
             />
           </GridLayout>
         </GridLayout>
 
-      <GridLayout row="5" rows="auto">
-        <MDButton
-          row="0"
-          text="Принять участие"
-          color="primary"
-          :class="submit ? '' : 'c-bg-orange' "
-          fontSize="16"
-          @tap="singIn"
-      />
+        <GridLayout row="5" rows="auto">
+          <MDButton
+              row="0"
+              :text="submit ? 'отменить участие' : 'Принять участие' "
+              color="primary"
+              :class="submit ? 'bg-primary' : 'c-bg-orange'"
+              fontSize="16"
+              borderRadius="4"
+              @tap="singIn"
+          />
+        </GridLayout>
+
       </GridLayout>
-
-    </GridLayout>
-
+<!--      </FlexboxLayout>-->
+    </MDCardView>
+    </FlexboxLayout>
 
     <!--      <StackLayout-->
     <!--          class="nt-input"-->

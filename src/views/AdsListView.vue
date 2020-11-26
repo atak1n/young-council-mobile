@@ -12,7 +12,6 @@
             :title="ad.title"
             :annotation="ad.annotation"
             :date="ad.date"
-
             :price="ad.price"
             ::tickets-count="ad.ticketsCount"
             @tap="openAdDetail(ad)"
