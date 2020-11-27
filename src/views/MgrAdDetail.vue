@@ -6,7 +6,7 @@
     <!--    <RadDataForm :source="adForm"/>-->
     <AbsoluteLayout class="m-t-10" width="100%" height="100%">
       <MDButton
-          top="-10"
+          top="-15"
           :left="btnLeftPosition"
           text.decode="&#xF03EB;"
           class="falseFAb mdi t-30"
@@ -40,8 +40,9 @@
             <TextField
                 hint="Название"
                 v-model="adForm.eventType.name"
-                editable="false"
+                :editable="editOn"
                 class="body2"
+                @tap="openEventTypesDialog"
             />
           </StackLayout>
 
@@ -81,6 +82,8 @@
                   class="body2"
                   col="1"
                   row="1"
+                  @tap="openDateDialog"
+
               />
             </GridLayout>
 
@@ -102,9 +105,11 @@
               <TextField
                   v-model="adForm.time"
                   :editable="editOn"
+                  @tap="openTimeDialog"
                   class="body2"
                   col="1"
                   row="1"
+
               />
             </GridLayout>
           </GridLayout>
@@ -223,19 +228,37 @@ export default {
         ad[key] = this.adForm[key]
         console.log(key, ad[key])
       }
-      this.$store.dispatch('modifyAd', ad).then(
-          () => {
+      this.$store.dispatch('modifyAd', ad)
+          .then( () => {
             alert({
               message: 'Событие отредактировано',
               okButtonText: 'OK',
               cancelable: false
             })
             this.editOn = false
-
-          }
-      )
-
-    }
+          })
+    },
+    openDateDialog() {
+      if (!this.editOn) return 0
+      this.$navigator.modal('/mgr-my-ads/date-modal', {fullscreen: true, id: 'dateModal'})
+          .then(data => {
+            if (data.constructor === String) this.adForm.date = data
+          })
+    },
+    openTimeDialog() {
+      if (!this.editOn) return 0
+      this.$navigator.modal('/mgr-my-ads/time-modal', {fullscreen: true, id: 'timeModal'})
+          .then(data => {
+            if (data.constructor === String) this.adForm.time = data
+          })
+    },
+    openEventTypesDialog() {
+      if (!this.editOn) return 0
+      this.$navigator.modal('/mgr-my-ads/event-types-modal', {fullscreen: true, id: 'categorySelectModal'})
+          .then(data => {
+            if (data) this.adForm.eventType = data
+          })
+    },
   },
   computed: {
     btnTopPosition() {
@@ -253,14 +276,14 @@ export default {
 </script>
 
 <style scoped>
-  .form-icon.mdi {
-    font-size: 24px;
-    margin-right: 10px;
-    color: #777777;
-  }
+.form-icon.mdi {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #777777;
+}
 
-  .-border {
-    border-radius: 8px;
-  }
+.-border {
+  border-radius: 8px;
+}
 
 </style>

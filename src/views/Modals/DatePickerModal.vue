@@ -27,20 +27,23 @@
       <!--          text="ок"-->
       <!--          @tap="submit"-->
       <!--      />-->
-      <Button
-          col="0"
-          row="1"
+      <FlexboxLayout col="1" row="1" colSpan="2" >
+
+
+      <MDButton
           text="отмена"
-          class="-outline -rounded-sm text-uppercase"
+          variant="outline"
+          fontSize="16"
+          color="accent"
           @tap="$modal.close"
+          flexShrink="1"
       />
-      <Button
-          col="1"
-          row="1"
+      <MDButton
           text="ок"
-          class="-primary -rounded-sm text-uppercase"
+          color="white"
+          fontSize="16"
           @tap="submit"
-      />
+      /></FlexboxLayout>
     </GridLayout>
 
   </Page>
@@ -60,10 +63,8 @@ export default {
   methods: {
     setDate() {
 
-
       this.today = new Date();
       this.date = new Date();
-      // this.minDate = new Date(2000, 1, 1)
       this.minDate = new Date()
       this.maxDate = new Date(2040, 1, 1)
       // this.maxDate = new Date(
@@ -73,7 +74,13 @@ export default {
       // )
     },
     submit() {
-      this.$modal.close(this.date)
+      let date = this.date
+      date = date
+          .toISOString()
+          .slice(0,10)
+          .split('-')
+          .reverse().join('.')
+      this.$modal.close(date)
     },
     showArgs() {
       // console.log(this.date)

@@ -81,7 +81,7 @@
       >
         <Label text="Дата" class="font-weight-bold m-b-5" />
         <TextField
-            :text="showDate"
+            :text="adForm.date"
             class="body2"
             @tap="openDateDialog"
             editable="false"
@@ -133,7 +133,7 @@ export default {
       title: '',
       eventType: '',
       annotation: '',
-      date: new Date(),
+      date: '',
       time: '',
       price: '',
       ticketsCount: '',
@@ -165,7 +165,6 @@ export default {
       this.$store.dispatch('createAd', this.adForm)
           .then( () => this.$modal.close() )
           .catch( err => console.log(err) )
-
     }
   },
   computed: {
