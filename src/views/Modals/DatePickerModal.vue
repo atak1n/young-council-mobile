@@ -3,7 +3,7 @@
     <ActionBar title="Выбор даты" class="">
       <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
     </ActionBar>
-    <GridLayout columns="auto,auto" rows="auto,auto" class="p-20">
+    <GridLayout columns="auto" rows="auto,auto" class="p-20">
       <DatePicker
           col="0"
           row="0"
@@ -14,36 +14,29 @@
           :date="today"
           v-model="date"
       />
-      <!--      <MDButton-->
-      <!--          col="0"-->
-      <!--          row="1"-->
-      <!--          text="отмена"-->
-      <!--          variant="outline"-->
-      <!--          @tap="$modal.close"-->
-      <!--      />-->
-      <!--      <MDButton-->
-      <!--          col="1"-->
-      <!--          row="1"-->
-      <!--          text="ок"-->
-      <!--          @tap="submit"-->
-      <!--      />-->
-      <FlexboxLayout col="1" row="1" colSpan="2" >
 
+      <FlexboxLayout
+          col="0" row="1"
+          justifyContent="center"
+      >
+        <MDButton
+            text="отмена"
+            variant="outline"
+            fontSize="14"
+            color="accent"
+            @tap="$modal.close"
+            class="m-8"
+        />
 
-      <MDButton
-          text="отмена"
-          variant="outline"
-          fontSize="16"
-          color="accent"
-          @tap="$modal.close"
-          flexShrink="1"
-      />
-      <MDButton
-          text="ок"
-          color="white"
-          fontSize="16"
-          @tap="submit"
-      /></FlexboxLayout>
+        <MDButton
+            text="ок"
+            variant="flat"
+            color="white"
+            fontSize="14"
+            @tap="submit"
+            class="m-8"
+        />
+      </FlexboxLayout>
     </GridLayout>
 
   </Page>
@@ -52,6 +45,7 @@
 </template>
 
 <script>
+
 export default {
   name: "PickerModal.vue",
   data: () => ({

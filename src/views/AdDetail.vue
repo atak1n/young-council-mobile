@@ -230,4 +230,5 @@ export default {
   margin-right: 10px;
   color: #777777;
 }
+
 </style>

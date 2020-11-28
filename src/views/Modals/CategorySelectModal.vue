@@ -3,7 +3,7 @@
     <ActionBar title="Выбор категории" class="">
       <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close('')"/>
     </ActionBar>
-    <GridLayout columns="*,*" rows="auto,auto" class="p-20">
+    <GridLayout columns="*" rows="auto,auto" class="p-20">
       <ListPicker
           col="0"
           row="0"
@@ -13,26 +13,27 @@
           v-model="selectedItem"
           @selectedIndexChange="showSelected"
       />
-      <StackLayout
-          col="0"
-          row="1"
-          colSpan="2"
-          orientation="horizontal"
-          class="m-t-16"
+      <FlexboxLayout
+          col="0" row="1"
+          justifyContent="center"
       >
-        <Button
-            horizontalAlignment="stretch"
-            text="ОТМЕНА"
-            class="-outline"
+        <MDButton
+            text="отмена"
+            variant="outline"
+            fontSize="14"
+            color="accent"
             @tap="$modal.close('')"
+            class="m-8"
         />
-        <Button
-            horizontalAlignment="stretch"
-            text="OK"
-            class="-primary"
+        <MDButton
+            text="ок"
+            variant="flat"
+            color="white"
+            fontSize="14"
             @tap="submit"
+            class="m-8"
         />
-      </StackLayout>
+      </FlexboxLayout>
 
     </GridLayout>
 

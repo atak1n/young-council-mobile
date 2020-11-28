@@ -23,7 +23,6 @@ Vue.use(RadDataForm)
 Vue.use(NSVueShadow)
 
 
-
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }

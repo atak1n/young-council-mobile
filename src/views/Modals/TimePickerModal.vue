@@ -3,7 +3,7 @@
     <ActionBar title="Выбор времени" class="">
       <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
     </ActionBar>
-    <GridLayout columns="*,*" rows="auto,auto" class="p-20">
+    <GridLayout columns="*" rows="auto,auto" class="p-20">
       <TimePicker
           col="0"
           row="0"
@@ -12,20 +12,28 @@
           v-model="time"
           @loaded="onPickerLoaded"
       />
-      <Button
-          col="0"
-          row="1"
-          text="отмена"
-          class="-outline"
-          @tap="$modal.close"
-      />
-      <Button
-          col="1"
-          row="1"
-          text="ок"
-          class="-primary"
-          @tap="submit"
-      />
+      <FlexboxLayout
+          col="0" row="1"
+          justifyContent="center"
+      >
+        <MDButton
+            text="отмена"
+            variant="outline"
+            fontSize="14"
+            color="accent"
+            @tap="$modal.close"
+            class="m-8"
+        />
+
+        <MDButton
+            text="ок"
+            variant="flat"
+            color="white"
+            fontSize="14"
+            @tap="submit"
+            class="m-8"
+        />
+      </FlexboxLayout>
     </GridLayout>
   </Page>
 </template>
