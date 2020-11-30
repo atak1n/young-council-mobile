@@ -15,12 +15,13 @@
       />
 
       <StackLayout  width="100%" height="100%">
-        <GridLayout rows="auto,auto,auto,auto, auto, auto" class="nt-form">
+        <GridLayout rows="auto,auto,auto,auto,auto,auto" class="nt-form">
 
           <!--      Название события-->
           <StackLayout
               row="0"
               class="nt-input body"
+              height="90"
           >
             <Label text="Название"/>
             <TextView
@@ -135,6 +136,7 @@
                   v-model="adForm.price"
                   :editable="editOn"
                   class="body2"
+                  :keyboardType="editOn ? 'number' : ''"
                   col="1"
                   row="1"
               />
@@ -157,6 +159,7 @@
               <TextField
                   v-model="adForm.ticketsCount"
                   :editable="editOn"
+                  :keyboardType="editOn ? 'number' : ''"
                   class="body2 "
                   col="1"
                   row="1"
