@@ -74,69 +74,36 @@
           <StackLayout class="hr m-10"></StackLayout>
         </StackLayout>
 
-        <GridLayout columns="*, *">
-<!--          <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">-->
-<!--            <Label-->
-<!--                text.decode="&#xF00ED;"-->
-<!--                class="form-icon mdi"-->
-<!--                textWrap="true"-->
-<!--                verticalAlignment="bottom"-->
-<!--                col="0"-->
-<!--                row="1"-->
-<!--            />-->
-<!--            <Label-->
-<!--                text="Дата"-->
-<!--                class=""-->
-<!--                col="1"-->
-<!--                row="0"/>-->
-<!--            <TextField-->
-<!--                :text="date"-->
-<!--                editable="false"-->
-<!--                class="body2 -rounded"-->
-<!--                col="1"-->
-<!--                row="1"-->
-<!--                backgroundColor="#FF5722"-->
-<!--            />-->
-<!--          </GridLayout>-->
+        <GridLayout columns="*,*">
 
-          <StackLayout
-              col="0"
-              class="nt-input"
-          >
-            <Label text="Дата"/>
-            <TextField
-                editable="false"
-                class="body2 -rounded"
-
+          <GridLayout col="0" columns="auto" rows="auto" verticalAlignment="center">
+            <FlexboxLayout
+                class="my-chip"
+                backgroundColor="#FF5722"
             >
-              <FormattedString>
-                <Span text.decode="&#xF00ED;" class="form-icon mdi c-grey"/>
-                <Span :text="date"></Span>
-              </FormattedString>
-            </TextField>
-          </StackLayout>
+              <Label
+                  text.decode="&#xF00ED;"
+                  fontSize="24"
+                  class="mdi c-white m-r-10"
+              />
+              <Label
+                  :text="date"
+                  class="t-16 c-white"
+              />
+            </FlexboxLayout>
+          </GridLayout>
 
-          <GridLayout col="1" class="nt-input" rows="auto, auto" columns="auto,*">
-            <Label
-                text.decode="&#xF0150;"
-                class="form-icon mdi c-grey"
-                textWrap="true"
-                verticalAlignment="bottom"
-                col="0"
-                row="1"
-            />
-            <Label
-                text="Время"
-                class=""
-                col="1"
-                row="0"/>
-            <TextField
-                :text="time"
-                editable="false"
-                class="body2"
-                col="1"
-                row="1"
-            />
+          <GridLayout col="1" columns="auto" rows="auto">
+            <FlexboxLayout>
+              <Label
+                  text.decode="&#xF0150;"
+                  class="form-icon mdi c-grey"
+              />
+              <Label
+                  :text="date"
+                  class="t-16"
+              />
+            </FlexboxLayout>
           </GridLayout>
         </GridLayout>
 
@@ -248,5 +215,10 @@ export default {
   font-size: 24px;
   margin-right: 10px;
   color: #777777;
+}
+.my-chip {
+  border-radius: 20%;
+  padding: 12px;
+  border-color: none;
 }
 </style>
