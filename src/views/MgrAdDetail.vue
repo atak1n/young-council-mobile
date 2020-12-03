@@ -171,7 +171,7 @@
             v-if="editOn"
             text="подтвердить изменения"
             color="white"
-            fontSize="16"
+            fontSize="14"
             @tap="submitEdit"
         />
       </StackLayout>

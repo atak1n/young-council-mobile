@@ -13,70 +13,25 @@
           class="fas t-36 p-y-24 bg-primary c-white"
       />
 
-      <!--      <GridLayout columns="*,*" rows="auto,auto,auto,auto," class="p-20">-->
-      <!--        <Label col="0"-->
-      <!--               row="0"-->
-      <!--               colSpan="2"-->
-      <!--               :text="title"-->
-      <!--               textWrap-->
-      <!--               height="40"-->
-      <!--               class="body2"-->
-      <!--        />-->
-      <!--        <Label col="0"-->
-      <!--               row="1"-->
-      <!--               colSpan="2"-->
-      <!--               :text="annotation"-->
-      <!--               textWrap-->
-      <!--               height="70"-->
-      <!--               class="body"-->
-      <!--        />-->
-      <!--        <Label-->
-      <!--            col="0"-->
-      <!--            row="2"-->
-      <!--            :text="'Дата: ' + date"-->
-
-      <!--            class="body2"-->
-      <!--        />-->
-      <!--        <Label-->
-      <!--            col="1"-->
-      <!--            row="2"-->
-      <!--            :text="eventType"-->
-
-      <!--            class="body2"-->
-      <!--        />-->
-      <!--        <Label-->
-      <!--            col="0"-->
-      <!--            row="3"-->
-      <!--            :text="'Цена: ' + price"-->
-      <!--            class="body2"-->
-      <!--        />-->
-      <!--        <Label-->
-      <!--            col="1"-->
-      <!--            row="3"-->
-      <!--            :text="'Кол-во ' + ticketsCount"-->
-      <!--            class="body2"-->
-      <!--        />-->
-      <!--      </GridLayout>-->
-
-      <FlexboxLayout flexDirection="column" class="p-y-12">
-        <StackLayout class="p-x-12">
+      <FlexboxLayout flexDirection="column" class="p-y-12 p-x-20">
+        <StackLayout class="m-b-4">
           <Label
               :text="title"
               textWrap
-
               class="h2"
           />
           <Label
               :text="annotation"
               textWrap
-              class="body c-grey-light"
+              class="h3 c-grey-light"
           />
-          <StackLayout class="hr m-10"></StackLayout>
         </StackLayout>
 
-        <GridLayout columns="*,*">
+        <StackLayout class="hr m-10"></StackLayout>
 
-          <GridLayout col="0" columns="auto" rows="auto" verticalAlignment="center">
+        <FlexboxLayout justifyContent="space-between" class="m-y-8">
+
+          <GridLayout columns="auto" rows="auto">
             <FlexboxLayout
                 class="my-chip"
                 backgroundColor="#FF5722"
@@ -93,69 +48,76 @@
             </FlexboxLayout>
           </GridLayout>
 
-          <GridLayout col="1" columns="auto" rows="auto">
+          <GridLayout
+              columns="auto" rows="auto"
+              verticalAlignment="center"
+          >
             <FlexboxLayout>
               <Label
                   text.decode="&#xF0150;"
                   class="form-icon mdi c-grey"
               />
               <Label
-                  :text="date"
+                  :text="eventType"
                   class="t-16"
               />
             </FlexboxLayout>
           </GridLayout>
-        </GridLayout>
+        </FlexboxLayout>
 
-        <GridLayout columns="*, *">
-          <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
+        <FlexboxLayout justifyContent="space-between" class="m-y-8">
+
+          <GridLayout rows="auto" columns="auto,auto">
             <Label
+                col="0"
                 text.decode="&#xF01B1;"
                 class="form-icon mdi"
-                textWrap="true"
-                verticalAlignment="bottom"
-                col="0"
-                row="1"
+
             />
             <Label
-                text="Цена"
-                class=""
                 col="1"
-                row="0"/>
-            <TextField
                 :text="price"
-                editable="false"
-                class="body2"
-                col="1"
-                row="1"
+                class="body2 c-grey-light"
             />
           </GridLayout>
 
-          <GridLayout col="1" class="nt-input" rows="auto, auto" columns="auto,*">
-            <Label
-                text.decode="&#xF0516;"
-                class="form-icon mdi"
-                textWrap="true"
-                verticalAlignment="bottom"
-                col="0"
-                row="1"
-            />
-            <Label
-                text="Кол-во билетов"
-                class=""
-                col="1"
-                row="0"/>
-            <TextField
-                :text="ticketsCount"
-                editable="false"
-                class="body2 "
-                col="1"
-                row="1"
-            />
+          <GridLayout rows="auto" columns="auto, auto">
+              <Label
+                  col="0"
+                  text.decode="&#xF0516;"
+                  class="form-icon mdi"
+              />
+              <Label
+                  col="1"
+                  class="body2 "
+              >
+                <FormattedString>
+                  <Span text="+"/>
+                  <Span :text="ticketsCount"/>
+                </FormattedString>
+              </Label>
+
           </GridLayout>
-        </GridLayout>
+        </FlexboxLayout>
+
+        <FlexboxLayout justifyContent="space-between" class="m-t-8" >
+          <MDButton
+
+              text="принять участие"
+              variant="outline"
+              color="accent"
+              fontSize="14"
+              class="p-x-8"
+
+          />
+          <MDButton
+              class="form-icon mdi btn-fab"
+              variant="text"
+              text.decode="&#xF04D2;"
+          />
+        </FlexboxLayout>
+
       </FlexboxLayout>
-
     </StackLayout>
   </MDCardView>
 </template>
@@ -218,7 +180,14 @@ export default {
 }
 .my-chip {
   border-radius: 20%;
-  padding: 12px;
-  border-color: none;
+  padding: 12px 24px;
+  border-color: transparent;
+}
+.btn-rounded {
+  border-radius: 50%;
+  padding: 0;
+  /*height: 36px;*/
+
+
 }
 </style>

@@ -13,7 +13,8 @@
             :annotation="ad.annotation"
             :date="ad.date"
             :price="ad.price"
-            ::tickets-count="ad.ticketsCount"
+            :eventType="ad.eventType.name"
+            :tickets-count="ad.ticketsCount"
             @tap="openAdDetail(ad)"
             v-shadow="4"
         />
