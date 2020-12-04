@@ -101,15 +101,17 @@
         </FlexboxLayout>
 
         <FlexboxLayout justifyContent="space-between" class="m-t-8" >
-          <MDButton
+
+            <MDButton
 
               text="принять участие"
               variant="outline"
               color="accent"
               fontSize="14"
-              class="p-x-8"
+              class="p-x-10"
 
           />
+
           <MDButton
               class="form-icon mdi btn-fab"
               variant="text"

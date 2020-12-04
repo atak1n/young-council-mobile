@@ -7,30 +7,59 @@
     <ScrollView>
       <FlexboxLayout flexDirection="column">
         <MDCardView
-
             margin="12"
-            height=""
             borderRadius="4"
             v-shadow="4"
             orientation="vertical"
             flexShrink="1"
         >
-          <GridLayout rows="*,auto,auto,auto, auto, auto" class="nt-form">
+          <GridLayout rows="auto,auto,auto,auto, auto, auto" class="p-20">
             <!--      <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">-->
 
             <!--      <FlexboxLayout flexDirection="column">-->
             <!--      Название события-->
-            <StackLayout
-                class="nt-input body"
-            >
-              <Label text="Название" class="" />
-              <TextView
-                  hint="Название"
-                  v-model="ad.title"
-                  editable="false"
-                  class="body2"
-              />
-            </StackLayout>
+<!--            <StackLayout-->
+<!--                class="nt-input body"-->
+<!--            >-->
+<!--              <Label text="Название" class="" />-->
+<!--              <TextView-->
+<!--                  hint="Название"-->
+<!--                  v-model="ad.title"-->
+<!--                  editable="false"-->
+<!--                  class="body2"-->
+<!--              />-->
+<!--            </StackLayout>-->
+
+<!--            <MDTextView-->
+<!--                row="0"-->
+<!--                id="textView1"-->
+<!--                editable="false"-->
+<!--                hint="Название123"-->
+<!--                :text="ad.title"-->
+<!--                variant="none"-->
+<!--                fontSize="14"-->
+<!--            />-->
+<!--            <GridLayout row="0" rows="auto,auto">-->
+<!--              <Label-->
+<!--                  row="0"-->
+<!--                  class="h4"-->
+<!--                  text="Категория события"-->
+<!--                  color="#388E3D"-->
+<!--              />-->
+<!--              <Label-->
+<!--                  row="1"-->
+<!--                  class="body2"-->
+<!--                  :text="ad.title"-->
+<!--              />-->
+<!--            </GridLayout>-->
+
+            <MyCardTextFiled
+                title="Категория события"
+                title-color="#388E3D"
+                :text="ad.title"
+            />
+
+
 
             <StackLayout
                 row="1"
@@ -39,7 +68,7 @@
               <Label text="Категоря события" class="" />
               <TextField
                   hint="Название"
-                  v-model="ad.eventType.name"
+                  :text="ad.eventType.name"
                   editable="false"
                   class="body2"
               />
@@ -51,7 +80,7 @@
             >
               <Label text="Описание" class="" />
               <TextView
-                  v-model="ad.annotation"
+                  :text="ad.annotation"
                   class="body2"
                   editable="false"
               />
@@ -76,7 +105,7 @@
                     col="1"
                     row="0"/>
                 <TextField
-                    v-model="ad.date"
+                    :text="ad.date"
                     editable="false"
                     class="body2"
                     col="1"
@@ -99,7 +128,7 @@
                     col="1"
                     row="0"/>
                 <TextField
-                    v-model="ad.time"
+                    :text="ad.time"
                     editable="false"
                     class="body2"
                     col="1"
@@ -124,7 +153,7 @@
                     col="1"
                     row="0"/>
                 <TextField
-                    v-model="ad.price"
+                    :text="ad.price"
                     editable="false"
                     class="body2"
                     col="1"
@@ -147,7 +176,7 @@
                     col="1"
                     row="0"/>
                 <TextField
-                    v-model="ad.ticketsCount"
+                    :text="ad.ticketsCount"
                     editable="false"
                     class="body2 "
                     col="1"
@@ -195,8 +224,10 @@
 
 <script>
 
+import MyCardTextFiled from "../components/Base/MyCardTextFiled";
 export default {
   name: "AdDetail",
+  components: {MyCardTextFiled},
   props: {
     ad: {
       type: Object
