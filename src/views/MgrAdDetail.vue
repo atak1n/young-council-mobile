@@ -4,7 +4,7 @@
 <!--      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>-->
       <MyActionBarBackBtn @tap="goBack"/>
     </ActionBar>
-    <!--    <RadDataForm :source="adForm"/>-->
+
     <AbsoluteLayout class="m-t-10" width="100%" height="100%">
       <MDButton
           top="-15"
