@@ -1,7 +1,8 @@
 <template>
   <Page @loaded="getArgs">
     <ActionBar title="Мои события">
-      <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
+<!--      <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>-->
+      <MyActionBarBackBtn @tap="goBack"/>
     </ActionBar>
     <AbsoluteLayout width="100%" height="100%">
 
@@ -61,21 +62,12 @@
 <script>
 import {mapState} from 'vuex'
 const platform = require("@nativescript/core/platform")
+import MyActionBarBackBtn from "../components/Base/MyActionBarBackBtn";
 
 export default {
   name: "MgrAdsView.vue",
-  components: {
-    // AdListItem: () => import('../components/AdListItem')
-  },
-  data: () => ({
-    // list: [1,2,3,4,5,6,7,8,9]
-    // ad: {
-    //   title: 'название',
-    //   annotation: 'описание',
-    //   date: '27.10.20'
-    //
-    // }
-  }),
+  components: {MyActionBarBackBtn},
+  data: () => ({}),
   computed: {
     ...mapState({
       ads: state => state.ads.ads

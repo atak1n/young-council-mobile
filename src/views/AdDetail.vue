@@ -2,7 +2,8 @@
 
   <Page class="page" >
     <ActionBar title="Событие" class="action-bar">
-      <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
+<!--      <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>-->
+    <MyActionBarBackBtn @tap="goBack"/>
     </ActionBar>
     <ScrollView>
       <FlexboxLayout flexDirection="column">
@@ -14,83 +15,39 @@
             flexShrink="1"
         >
           <GridLayout rows="auto,auto,auto,auto, auto, auto" class="p-20">
-            <!--      <GridLayout columns="*,*" rows="auto, auto, auto" class="nt-form">-->
-
-            <!--      <FlexboxLayout flexDirection="column">-->
-            <!--      Название события-->
-<!--            <StackLayout-->
-<!--                class="nt-input body"-->
-<!--            >-->
-<!--              <Label text="Название" class="" />-->
-<!--              <TextView-->
-<!--                  hint="Название"-->
-<!--                  v-model="ad.title"-->
-<!--                  editable="false"-->
-<!--                  class="body2"-->
-<!--              />-->
-<!--            </StackLayout>-->
-
-<!--            <MDTextView-->
-<!--                row="0"-->
-<!--                id="textView1"-->
-<!--                editable="false"-->
-<!--                hint="Название123"-->
-<!--                :text="ad.title"-->
-<!--                variant="none"-->
-<!--                fontSize="14"-->
-<!--            />-->
-<!--            <GridLayout row="0" rows="auto,auto">-->
-<!--              <Label-->
-<!--                  row="0"-->
-<!--                  class="h4"-->
-<!--                  text="Категория события"-->
-<!--                  color="#388E3D"-->
-<!--              />-->
-<!--              <Label-->
-<!--                  row="1"-->
-<!--                  class="body2"-->
-<!--                  :text="ad.title"-->
-<!--              />-->
-<!--            </GridLayout>-->
-
             <MyCardTextFiled
-                title="Категория события"
+                row="0"
+                title="Название"
                 title-color="#388E3D"
                 :text="ad.title"
+                class="m-b-8"
+            />
+
+            <MyCardTextFiled
+                row="1"
+                title="Категория события"
+                title-color="#388E3D"
+                :text="ad.eventType.name"
+                class="m-b-8"
+            />
+            <!--      описание события-->
+            <MyCardTextFiled
+                row="2"
+                title="Описание"
+                title-color="#388E3D"
+                :text="ad.annotation"
+                class="m-b-8"
             />
 
 
+<!--цена события-->
 
-            <StackLayout
-                row="1"
-                class="nt-input body"
-            >
-              <Label text="Категоря события" class="" />
-              <TextField
-                  hint="Название"
-                  :text="ad.eventType.name"
-                  editable="false"
-                  class="body2"
-              />
-            </StackLayout>
 
-            <!--      описание события-->
-            <StackLayout row="2"
-                         class="nt-input"
-            >
-              <Label text="Описание" class="" />
-              <TextView
-                  :text="ad.annotation"
-                  class="body2"
-                  editable="false"
-              />
-              <!--        <StackLayout class="hr"/>-->
-            </StackLayout>
 
-            <!--цена события-->
 
             <GridLayout row="3" columns="*, *">
               <GridLayout col="0" class="nt-input" rows="auto, auto" columns="auto,*">
+
                 <Label
                     text.decode="&#xF00ED;"
                     class="form-icon mdi"
@@ -223,11 +180,15 @@
 </template>
 
 <script>
-
+import MyActionBarBackBtn from "../components/Base/MyActionBarBackBtn";
 import MyCardTextFiled from "../components/Base/MyCardTextFiled";
+
 export default {
   name: "AdDetail",
-  components: {MyCardTextFiled},
+  components: {
+    MyActionBarBackBtn,
+    MyCardTextFiled,
+  },
   props: {
     ad: {
       type: Object

@@ -6,7 +6,7 @@ import Navigator from 'nativescript-vue-navigator'
 import CardViewPlugin from '@nativescript-community/ui-material-cardview/vue'
 import ButtonPlugin from '@nativescript-community/ui-material-button/vue'
 import TextFieldPlugin from '@nativescript-community/ui-material-textfield/vue'
-// import TextViewPlugin from '@nativescript-community/ui-material-textview/vue'
+import TextViewPlugin from '@nativescript-community/ui-material-textview/vue'
 
 import RadListView from 'nativescript-ui-listview/vue'
 import RadDataForm from 'nativescript-ui-dataform/vue'
@@ -21,7 +21,7 @@ Vue.use(CardViewPlugin)
 Vue.use(RadListView)
 Vue.use(ButtonPlugin)
 Vue.use(TextFieldPlugin)
-// Vue.use(TextViewPlugin)
+Vue.use(TextViewPlugin)
 
 Vue.use(RadDataForm)
 Vue.use(NSVueShadow)

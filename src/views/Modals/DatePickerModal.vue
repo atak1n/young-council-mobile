@@ -1,7 +1,7 @@
 <template>
   <Page @loaded="setDate">
     <ActionBar title="Выбор даты" class="">
-      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
+      <MyActionBarBackBtn @tap="$modal.close"/>
     </ActionBar>
     <GridLayout columns="auto" rows="auto,auto" class="p-20">
       <DatePicker
@@ -45,9 +45,11 @@
 </template>
 
 <script>
+import MyActionBarBackBtn from "../../components/Base/MyActionBarBackBtn";
 
 export default {
   name: "PickerModal.vue",
+  components: { MyActionBarBackBtn },
   data: () => ({
     today: '',
     date: '',

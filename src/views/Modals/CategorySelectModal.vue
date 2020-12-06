@@ -1,7 +1,7 @@
 <template>
   <Page @loaded="">
     <ActionBar title="Выбор категории" class="">
-      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close('')"/>
+      <MyActionBarBackBtn @tap="$modal.close('')"/>
     </ActionBar>
     <GridLayout columns="*" rows="auto,auto" class="p-20">
       <ListPicker
@@ -42,9 +42,11 @@
 
 <script>
 import {mapState} from 'vuex'
+import MyActionBarBackBtn from "../../components/Base/MyActionBarBackBtn";
 
 export default {
   name: "CategoryPickerModal.vue",
+  components: {MyActionBarBackBtn},
   data: () => ({
     selectedItem: 0,
 

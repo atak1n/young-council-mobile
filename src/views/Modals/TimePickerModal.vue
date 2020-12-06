@@ -1,7 +1,8 @@
 <template>
   <Page @loaded="">
     <ActionBar title="Выбор времени" class="">
-      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>
+<!--      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="$modal.close"/>-->
+      <MyActionBarBackBtn @tap="$modal.close"/>
     </ActionBar>
     <GridLayout columns="*" rows="auto,auto" class="p-20">
       <TimePicker
@@ -40,9 +41,11 @@
 
 <script>
 import {isAndroid, isIOS} from "@nativescript/core/platform";
+import MyActionBarBackBtn from "../../components/Base/MyActionBarBackBtn";
 
 export default {
   name: "TimePickerModal",
+  components: { MyActionBarBackBtn },
   data: () => ({
     time: '',
   }),

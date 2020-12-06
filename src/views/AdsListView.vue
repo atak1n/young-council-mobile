@@ -1,9 +1,22 @@
 <template>
   <Page class="page" id="ad-list-view">
-    <ActionBar title="Список событий" class="action-bar"/>
-    <StackLayout>
-      <Label class="message" text="Cписок событий" />
-    </StackLayout>
+    <ActionBar title="Список событий" class="action-bar">
+      <ActionItem
+          icon.decode="font://&#xF0232;"
+          class="t-10 mdi"
+          ios.position="right"
+      />
+
+      <ActionItem
+        icon.decode="font://&#xF0349;"
+        class="t-10 mdi"
+        ios.position="right"
+    />
+    </ActionBar>
+
+<!--    <StackLayout>-->
+<!--      <Label class="message" text="Cписок событий" />-->
+<!--    </StackLayout>-->
     <ScrollView>
       <StackLayout orientation="vertical" >
 

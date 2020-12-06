@@ -1,7 +1,8 @@
 <template>
   <Page @loaded="setAdForm">
     <ActionBar title="Событие детали" class="action-bar">
-      <NavigationButton class="" android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>
+<!--      <NavigationButton android.systemIcon="ic_menu_back" text="Назад" @tap="goBack"/>-->
+      <MyActionBarBackBtn @tap="goBack"/>
     </ActionBar>
     <!--    <RadDataForm :source="adForm"/>-->
     <AbsoluteLayout class="m-t-10" width="100%" height="100%">
@@ -21,7 +22,7 @@
           <StackLayout
               row="0"
               class="nt-input body"
-              height="90"
+
           >
             <Label text="Название"/>
             <TextView
@@ -29,8 +30,20 @@
                 v-model="adForm.title"
                 :editable="editOn"
                 class="-border body2"
+                height="auto"
             />
           </StackLayout>
+
+<!--          <MDTextView-->
+<!--              row="0"-->
+<!--              hint="Название"-->
+<!--              v-model="adForm.title"-->
+<!--              :editable="editOn"-->
+<!--              class="body2"-->
+<!--              variant="none"-->
+
+<!--          />-->
+
 
           <!--          Категория события-->
           <StackLayout
@@ -183,9 +196,13 @@
 
 <script>
 const platform = require("@nativescript/core/platform")
+import MyActionBarBackBtn from "../components/Base/MyActionBarBackBtn";
 
 export default {
   name: "MgrAdDetail",
+  components: {
+    MyActionBarBackBtn
+  },
   props: {
     ad: {
       type: Object,
